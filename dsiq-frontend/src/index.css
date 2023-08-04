@@ -3,11 +3,6 @@
   box-shadow: none !important;
 }
 
-.btn-primary:focus {
-  background-color: transparent;
-  border-color: unset;
-}
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

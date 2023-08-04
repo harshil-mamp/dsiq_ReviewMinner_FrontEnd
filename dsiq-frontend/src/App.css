@@ -7,6 +7,22 @@
   --gray: rgba(0, 0, 0, 0.06);
 }
 
+.fs-p {
+  font-size: 16px;
+}
+
+.fs-subp {
+  font-size: 20px;
+}
+
+.fs-subhead {
+  font-size: 24px;
+}
+
+.fs-xl {
+  font-size: 30px;
+}
+
 /* Box sizing */
 *,
 *::before,
@@ -64,7 +80,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
 /* make images easier to work with */
 img {
   max-width: 100%;
