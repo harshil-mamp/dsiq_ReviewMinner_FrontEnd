@@ -1,0 +1,32 @@
+*:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.btn-primary:focus {
+  background-color: transparent;
+  border-color: unset;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  /* margin-top: 20px; */
+  background: #111111;
+  transition: all 1s ease;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: #303030;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1677ff;
+  border-radius: 10px;
+}
