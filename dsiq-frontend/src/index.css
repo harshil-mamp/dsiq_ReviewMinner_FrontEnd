@@ -23,10 +23,10 @@ code {
 
 ::-webkit-scrollbar-track {
   border-radius: 10px;
-  background-color: #303030;
+  background-color: var(--black);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1677ff;
+  background: var(--primary);
   border-radius: 10px;
 }

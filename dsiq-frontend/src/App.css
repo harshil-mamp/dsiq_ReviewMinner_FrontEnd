@@ -1,3 +1,12 @@
+:root {
+  /* Colors */
+  --primary: #1677ff;
+  --black: #303030;
+  --white: #ffffff;
+
+  --gray: rgba(0, 0, 0, 0.06);
+}
+
 /* Box sizing */
 *,
 *::before,
@@ -46,7 +55,8 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   scroll-behavior: smooth;
-  background: #ffffff;
+  background: var(--white);
+  color: var(--black);
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
