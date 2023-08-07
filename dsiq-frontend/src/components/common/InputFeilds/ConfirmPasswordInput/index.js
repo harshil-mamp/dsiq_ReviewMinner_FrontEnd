@@ -2,27 +2,24 @@ import React from "react";
 import { Form, InputGroup, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Eye, EyeSlash, InfoCircle } from "react-bootstrap-icons";
 
-const PasswordInput = ({
+const ConfirmPasswordInput = ({
   value,
   onChange,
   showPassword,
   togglePassword,
   passwordError,
 }) => {
-  const tooltip = (
-    <Tooltip id="tooltip">
-      Password should be at least 6 characters long with a special character, a
-      number, an uppercase, and a lowercase letter.
-    </Tooltip>
-  );
-
+  const tooltip = <Tooltip id="tooltip">Password must be match</Tooltip>;
   return (
-    <Form.Group className="position-relative mb-5" controlId="formGridPassword">
-      <Form.Label>Password</Form.Label>
+    <Form.Group
+      className="position-relative mb-5"
+      controlId="formGridConfirmPassword"
+    >
+      <Form.Label>Confirm Password</Form.Label>
       <InputGroup>
         <Form.Control
           type={showPassword ? "text" : "password"}
-          placeholder="Enter password"
+          placeholder="Re-enter password"
           value={value}
           onChange={(e) => onChange(e.target.value)}
         />
@@ -52,4 +49,4 @@ const PasswordInput = ({
   );
 };
 
-export default PasswordInput;
+export default ConfirmPasswordInput;

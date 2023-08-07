@@ -5,6 +5,8 @@ import Login from "./components/Auth/Login/index";
 import ForgotPwd from "./components/Auth/Login/ForgotPwd";
 import Verify from "./components/Auth/Login/Verify";
 import Register from "./components/Auth/Register/index";
+import Success from "./components/Auth/Register/success";
+import Failed from "./components/Auth/Register/failed";
 
 import { Route, Routes, Navigate } from "react-router-dom";
 
@@ -19,6 +21,8 @@ const Routers = () => {
         <Route index exact path="/verify" element={<Verify />} />
 
         <Route index exact path="/register" element={<Register />} />
+        <Route index exact path="/success" element={<Success />} />
+        <Route index exact path="/failed" element={<Failed />} />
 
         {/* Temporary 404 component */}
         <Route path="*" element={<h1>Not Found</h1>} />

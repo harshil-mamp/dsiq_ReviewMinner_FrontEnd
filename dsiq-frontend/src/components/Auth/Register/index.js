@@ -1,29 +1,145 @@
 import React from "react";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
-import RegisterImg from "../../../assets/img/register.svg";
+import { useNavigate } from "react-router-dom";
+import NameInput from "../../common/InputFeilds/NameInput";
+import EmailInput from "../../common/InputFeilds/EmailInput";
+import PasswordInput from "../../common/InputFeilds/PasswordInput";
+import ConfirmPasswordInput from "../../common/InputFeilds/ConfirmPasswordInput";
+import useFormValidation from "../../common/useFormValidation.js";
+import LoginLeft from "../Login/login-left";
+import CompanyInput from "../../common/InputFeilds/CompanyInput";
 
 const Register = () => {
+  const {
+    email,
+    setEmail,
+    validateEmail,
+    emailError,
+    password,
+    setPassword,
+    validatePassword,
+    passwordError,
+    showPassword,
+    togglePasswordVisibility,
+    confirmPassword,
+    setConfirmPassword,
+    confirmPasswordError,
+    validateConfirmPassword,
+    showConfirmPassword,
+    toggleConfirmPasswordVisibility,
+    fname,
+    setFName,
+    fNameError,
+    validateFName,
+    lname,
+    setLName,
+    lNameError,
+    validateLName,
+    company,
+    setCompany,
+    companyError,
+    validateCompany,
+  } = useFormValidation();
+  const navigate = useNavigate();
+
   const handleSubmit = (event) => {
     event.preventDefault();
+
+    if (
+      !email ||
+      !password ||
+      !fname ||
+      !lname ||
+      !confirmPassword ||
+      !company
+    ) {
+      validateFName(fname);
+      validateLName(lname);
+      validateEmail(email);
+      validatePassword(password);
+      validateConfirmPassword(confirmPassword);
+      validateCompany(company);
+      return;
+    }
+    if (
+      !emailError &&
+      !passwordError &&
+      !confirmPasswordError &&
+      !fNameError &&
+      !lNameError &&
+      !companyError
+    ) {
+      setFName("");
+      setLName("");
+      setEmail("");
+      setPassword("");
+      setConfirmPassword("");
+      setCompany("");
+      navigate("/success");
+    }
   };
   return (
-    <Container>
-      <Row>
-        <Col span={12} md={6}>
-          <img className="vh-100" src={RegisterImg} alt="Register" />
-        </Col>
-        <Col
-          span={12}
-          md={6}
-          className="d-flex justify-content-center align-items-center"
-        >
-          <div>
-            <h3 className="text-center fw-bold">Create Your Account</h3>
-            <Form className="w-100" onSubmit={handleSubmit}></Form>
-          </div>
-        </Col>
-      </Row>
-    </Container>
+    <Row className="login-content">
+      <Col className="login-left-part" span={12} md={6}>
+        <LoginLeft />
+      </Col>
+      <Col
+        span={12}
+        md={6}
+        className="d-flex mb-5 mb-md-0 justify-content-center align-items-center"
+      >
+        <div>
+          <h3 className="text-center fw-bold my-5">Create Your Account</h3>
+          <Form
+            className="shadow-container p-4 d-flex flex-column justify-content-center"
+            onSubmit={handleSubmit}
+          >
+            <NameInput
+              fvalue={fname}
+              onChangeF={validateFName}
+              fNameError={fNameError}
+              lvalue={lname}
+              onChangeL={validateLName}
+              lNameError={lNameError}
+            />
+            <EmailInput
+              value={email}
+              onChange={validateEmail}
+              emailError={emailError}
+            />
+            <PasswordInput
+              value={password}
+              onChange={validatePassword}
+              showPassword={showPassword}
+              togglePassword={togglePasswordVisibility}
+              passwordError={passwordError}
+            />
+            <ConfirmPasswordInput
+              value={confirmPassword}
+              onChange={validateConfirmPassword}
+              showPassword={showConfirmPassword}
+              togglePassword={toggleConfirmPasswordVisibility}
+              passwordError={confirmPasswordError}
+            />
+            <CompanyInput
+              value={company}
+              onChange={validateCompany}
+              companyError={companyError}
+            />
+            <div className="mb-5 d-flex justify-content-between align-items-center">
+              <div>
+                <a href="/login" style={{ color: "#3f4b55" }}>
+                  Already have an account
+                </a>
+              </div>
+              <Button variant="primary" type="submit">
+                Create Account
+              </Button>
+            </div>
+          </Form>
+        </div>
+      </Col>
+    </Row>
   );
 };
 

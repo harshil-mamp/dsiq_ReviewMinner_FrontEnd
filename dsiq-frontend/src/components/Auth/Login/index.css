@@ -1,5 +1,5 @@
 .login-left-part {
-    background: var(--primary);
+    background: linear-gradient(145deg, rgba(28, 32, 36, 1) 0%, rgba(41, 46, 51, 1) 25%, rgba(63, 75, 85, 1) 55%, rgba(63, 75, 85, 1) 73%, rgba(74, 86, 96, 1) 100%) !important;
     padding: 3% 8%;
     max-height: 100vh;
     overflow-y: hidden;

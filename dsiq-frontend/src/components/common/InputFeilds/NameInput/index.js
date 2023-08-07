@@ -1,10 +1,17 @@
 import React from "react";
 import { Form, Row, Col } from "react-bootstrap";
 
-const NameInput = ({ value, onChange, fnameError, lnameError }) => {
+const NameInput = ({
+  fvalue,
+  lvalue,
+  onChangeF,
+  onChangeL,
+  fNameError,
+  lNameError,
+}) => {
   return (
     <Row>
-      <Col>
+      <Col span={12} md={6}>
         <Form.Group
           className="position-relative mb-5"
           controlId="formGridFName"
@@ -13,17 +20,17 @@ const NameInput = ({ value, onChange, fnameError, lnameError }) => {
           <Form.Control
             type="text"
             placeholder="Enter your first name"
-            value={value}
-            onChange={(e) => onChange(e.target.value)}
+            value={fvalue}
+            onChange={(e) => onChangeF(e.target.value)}
           />
-          {fnameError && (
+          {fNameError && (
             <Form.Text className="text-danger form-error-msg">
-              {fnameError}
+              {fNameError}
             </Form.Text>
           )}
         </Form.Group>
       </Col>
-      <Col>
+      <Col span={12} md={6}>
         <Form.Group
           className="position-relative mb-5"
           controlId="formGridLName"
@@ -32,12 +39,12 @@ const NameInput = ({ value, onChange, fnameError, lnameError }) => {
           <Form.Control
             type="text"
             placeholder="Enter your last name"
-            value={value}
-            onChange={(e) => onChange(e.target.value)}
+            value={lvalue}
+            onChange={(e) => onChangeL(e.target.value)}
           />
-          {lnameError && (
+          {lNameError && (
             <Form.Text className="text-danger form-error-msg">
-              {lnameError}
+              {lNameError}
             </Form.Text>
           )}
         </Form.Group>

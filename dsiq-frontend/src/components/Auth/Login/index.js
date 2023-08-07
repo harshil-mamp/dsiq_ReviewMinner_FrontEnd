@@ -75,7 +75,7 @@ const Login = () => {
             <a
               className="fs-subp"
               style={{ color: "#3f4b55", fontWeight: 600 }}
-              href="/"
+              href="/register"
             >
               Create a new account
             </a>
