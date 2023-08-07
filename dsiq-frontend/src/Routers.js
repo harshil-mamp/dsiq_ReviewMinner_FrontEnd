@@ -1,9 +1,10 @@
 import React from "react";
 
 import Home from "./components/Home";
-import Login from "./components/Auth/index";
+import Login from "./components/Auth/Login/index";
 import ForgotPwd from "./components/Auth/Login/ForgotPwd";
 import Verify from "./components/Auth/Login/Verify";
+import Register from "./components/Auth/Register/index";
 
 import { Route, Routes, Navigate } from "react-router-dom";
 
@@ -12,9 +13,12 @@ const Routers = () => {
     <div>
       <Routes>
         <Route index exact path="/" element={<Home />} />
+
         <Route index exact path="/login" element={<Login />} />
         <Route index exact path="/forgot-password" element={<ForgotPwd />} />
         <Route index exact path="/verify" element={<Verify />} />
+
+        <Route index exact path="/register" element={<Register />} />
 
         {/* Temporary 404 component */}
         <Route path="*" element={<h1>Not Found</h1>} />

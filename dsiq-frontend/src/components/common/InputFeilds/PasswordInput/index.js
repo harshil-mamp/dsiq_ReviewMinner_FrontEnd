@@ -31,11 +31,15 @@ const PasswordInput = ({
           style={{ cursor: "pointer" }}
           onClick={togglePassword}
         >
-          {showPassword ? <EyeSlash /> : <Eye />}
+          {showPassword ? (
+            <EyeSlash color="#3f4b55" />
+          ) : (
+            <Eye color="#3f4b55" />
+          )}
         </div>
         <InputGroup.Text>
           <OverlayTrigger placement="top" overlay={tooltip}>
-            <InfoCircle cursor="pointer" color="#1677ff" />
+            <InfoCircle cursor="pointer" color="#3f4b55" />
           </OverlayTrigger>
         </InputGroup.Text>
       </InputGroup>

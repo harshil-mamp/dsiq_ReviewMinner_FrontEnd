@@ -1,0 +1,68 @@
+.login-left-part {
+    background: var(--primary);
+    padding: 3% 8%;
+    max-height: 100vh;
+    overflow-y: hidden;
+}
+
+.login-left-part h3,
+.login-left-part p {
+    color: var(--white);
+}
+
+.login-left-part button {
+    font-weight: 700;
+    width: max-content;
+}
+
+.login-left-part img {
+    max-width: 800px;
+    margin: 0 auto 100px;
+    width: 75%;
+}
+
+.login-right-part {
+    background: var(--gray);
+}
+
+.login-right-part form {
+    background: var(--white);
+    width: 400px;
+    max-width: 400px;
+}
+
+@media only screen and (max-width: 1500px) {
+    .login-left-part img {
+        max-width: 800px;
+        margin: 0 auto 50px;
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .login-right-part form {
+        width: 300px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .login-left-part img {
+        max-width: 500px;
+        margin: 0 auto;
+        width: 75%;
+    }
+
+    .login-left-part,
+    .login-left-part-wrap {
+        height: max-content !important;
+    }
+
+    .login-content {
+        flex-direction: column-reverse !important;
+    }
+
+    .login-right-part form {
+        width: 350px;
+        margin: 40px;
+    }
+}
