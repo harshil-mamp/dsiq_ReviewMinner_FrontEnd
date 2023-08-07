@@ -23,6 +23,17 @@
   font-size: 30px;
 }
 
+.form-error-msg {
+  position: absolute;
+  bottom: -22px;
+}
+
+.pwd-feild-eye {
+  position: absolute;
+  right: 50px;
+  bottom: 8px;
+}
+
 /* Box sizing */
 *,
 *::before,
