@@ -1,0 +1,7 @@
+.navbar-wrapper {
+    background: var(--primary);
+}
+
+.navbar-wrapper .nav-link {
+    color: var(--white);
+}

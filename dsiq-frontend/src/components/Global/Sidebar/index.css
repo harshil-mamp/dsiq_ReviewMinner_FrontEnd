@@ -1,0 +1,21 @@
+.sidebar-wrapper {
+    width: 5em;
+    min-height: 100vh;
+    background: var(--primary);
+    transition: width 0.3s;
+}
+
+.sidebar-open {
+    width: 20em;
+    min-height: 100vh;
+    background: var(--primary);
+}
+
+.sidebar-wrapper .sidebar-icons {
+    width: 3em;
+    height: 3em;
+}
+
+.sidebar-heading h3 {
+    color: var(--white);
+}
