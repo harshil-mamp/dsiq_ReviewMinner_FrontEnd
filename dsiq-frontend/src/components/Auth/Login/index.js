@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Row, Col, Form, Button } from "react-bootstrap";
+import { Row, Col, Form, Button } from "react-bootstrap";
 import PasswordInput from "../../common/InputFeilds/PasswordInput/index";
 import EmailInput from "../../common/InputFeilds/EmailInput/index";
 import useFormValidation from "../../common/useFormValidation.js/index.js";

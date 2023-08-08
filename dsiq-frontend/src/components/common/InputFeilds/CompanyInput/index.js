@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, Row, Col } from "react-bootstrap";
+import { Form, Row } from "react-bootstrap";
 
 const CompanyInput = ({ value, onChange, companyError }) => {
   return (
