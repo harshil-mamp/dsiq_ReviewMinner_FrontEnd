@@ -1,12 +1,12 @@
 import React from "react";
 import { Row, Col } from "react-bootstrap";
-import LoginLeft from "../Login/login-left";
+import AuthLeft from "../auth-left";
 
 const Failed = () => {
   return (
     <Row className="login-content">
       <Col className="login-left-part" span={12} md={6}>
-        <LoginLeft />
+        <AuthLeft />
       </Col>
       <Col
         span={12}

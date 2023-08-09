@@ -6,7 +6,7 @@ import EmailInput from "../../common/InputFeilds/EmailInput";
 import PasswordInput from "../../common/InputFeilds/PasswordInput";
 import ConfirmPasswordInput from "../../common/InputFeilds/ConfirmPasswordInput";
 import useFormValidation from "../../common/useFormValidation.js";
-import LoginLeft from "../Login/login-left";
+import AuthLeft from "../auth-left";
 import CompanyInput from "../../common/InputFeilds/CompanyInput";
 
 const Register = () => {
@@ -44,11 +44,11 @@ const Register = () => {
 
   async function registerUser() {
     const registerDetails = {
-      email,
-      password,
-      firstName: fname,
-      lastName: lname,
-      company,
+      email: email,
+      password: password,
+      first_name: fname,
+      last_name: lname,
+      company_name: company,
     };
 
     try {
@@ -114,7 +114,7 @@ const Register = () => {
   return (
     <Row className="login-content">
       <Col className="login-left-part" span={12} md={6}>
-        <LoginLeft />
+        <AuthLeft />
       </Col>
       <Col
         span={12}

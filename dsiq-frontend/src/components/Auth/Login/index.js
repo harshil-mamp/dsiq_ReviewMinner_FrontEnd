@@ -3,7 +3,7 @@ import { Row, Col, Form, Button } from "react-bootstrap";
 import PasswordInput from "../../common/InputFeilds/PasswordInput/index";
 import EmailInput from "../../common/InputFeilds/EmailInput/index";
 import useFormValidation from "../../common/useFormValidation.js/index.js";
-import LoginLeft from "./login-left";
+import AuthLeft from "../auth-left";
 import "./index.css";
 
 const Login = () => {
@@ -69,7 +69,7 @@ const Login = () => {
   return (
     <Row className="login-content">
       <Col className="login-left-part" span={12} md={6}>
-        <LoginLeft />
+        <AuthLeft />
       </Col>
       <Col
         span={12}

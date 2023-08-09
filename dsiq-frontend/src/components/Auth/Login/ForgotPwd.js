@@ -3,7 +3,7 @@ import { Row, Col, Form, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import EmailInput from "../../common/InputFeilds/EmailInput";
 import useFormValidation from "../../common/useFormValidation.js/index.js";
-import LoginLeft from "./login-left";
+import AuthLeft from "../auth-left";
 
 const ForgotPwd = () => {
   const { email, setEmail, validateEmail, emailError } = useFormValidation();
@@ -49,7 +49,7 @@ const ForgotPwd = () => {
   return (
     <Row className="login-content">
       <Col className="login-left-part" span={12} md={6}>
-        <LoginLeft />
+        <AuthLeft />
       </Col>
       <Col
         span={12}

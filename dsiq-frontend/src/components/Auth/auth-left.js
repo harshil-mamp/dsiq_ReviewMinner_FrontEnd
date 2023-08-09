@@ -1,9 +1,9 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 import { CheckAll } from "react-bootstrap-icons";
-import DashboardImg from "../../../assets/img/dashboard-img.svg";
+import DashboardImg from "../../assets/img/dashboard-img.svg";
 
-const LoginLeft = () => {
+const AuthLeft = () => {
   return (
     <div className="login-left-part-wrap vh-100 d-flex flex-column justify-content-between">
       <div>
@@ -41,4 +41,4 @@ const LoginLeft = () => {
   );
 };
 
-export default LoginLeft;
+export default AuthLeft;

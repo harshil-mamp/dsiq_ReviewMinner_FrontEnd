@@ -10,7 +10,7 @@ const Home = () => {
       </div>
       <div className="w-100">
         <Navbars />
-        <h1 className="mx-auto text-center">Home</h1>
+        <h1 className="mx-auto text-center">Home!</h1>
       </div>
     </div>
   );
