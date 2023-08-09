@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Row, Col, Form, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import EmailInput from "../../common/InputFeilds/EmailInput";
@@ -8,8 +8,9 @@ import LoginLeft from "./login-left";
 const ForgotPwd = () => {
   const { email, setEmail, validateEmail, emailError } = useFormValidation();
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     if (!email) {
       validateEmail(email);
@@ -18,6 +19,30 @@ const ForgotPwd = () => {
     if (!emailError) {
       setEmail("");
       navigate("/verify");
+    }
+
+    setLoading(true);
+
+    try {
+      const response = await fetch("http://localhost:5000/forgot_pw", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }), // Adjust the payload as needed
+      });
+
+      if (response.ok) {
+        setEmail("");
+        navigate("/verify");
+      } else {
+        // Handle error cases
+        console.error("Error sending email:", response.status);
+      }
+    } catch (error) {
+      console.error("Error sending email:", error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -50,7 +75,7 @@ const ForgotPwd = () => {
             />
             <div className="mb-3 d-flex justify-content-end align-items-center">
               <Button variant="primary" type="submit">
-                Verify
+                {loading ? "Sending..." : "Verify"}
               </Button>
             </div>
           </Form>

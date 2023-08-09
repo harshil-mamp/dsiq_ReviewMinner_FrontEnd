@@ -42,6 +42,38 @@ const Register = () => {
   } = useFormValidation();
   const navigate = useNavigate();
 
+  async function registerUser() {
+    const registerDetails = {
+      email,
+      password,
+      firstName: fname,
+      lastName: lname,
+      company,
+    };
+
+    try {
+      const response = await fetch("http://localhost:5000/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(registerDetails),
+      });
+
+      if (response.ok) {
+        // Registration successful
+        navigate("/success");
+      } else {
+        // Handle registration error
+        console.error("Registration failed");
+      }
+    } catch (error) {
+      // Handle network error
+      console.error("Network error:", error);
+    }
+  }
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -75,6 +107,7 @@ const Register = () => {
       setPassword("");
       setConfirmPassword("");
       setCompany("");
+      registerUser();
       navigate("/success");
     }
   };

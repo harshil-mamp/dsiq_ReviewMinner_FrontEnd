@@ -19,7 +19,8 @@ const Login = () => {
     showPassword,
     togglePasswordVisibility,
   } = useFormValidation();
-  const handleSubmit = (event) => {
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     if (!email || !password) {
@@ -27,7 +28,39 @@ const Login = () => {
       validatePassword(password);
       return;
     }
+
     if (!emailError && !passwordError) {
+      try {
+        const loginDetails = {
+          email: email,
+          password: password,
+        };
+
+        console.log("*", loginDetails);
+
+        // Send a POST request to the login API endpoint
+        const response = await fetch("http://localhost:5000/login", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify(loginDetails),
+        });
+        console.log(response);
+        if (response.ok) {
+          // Login successful, you can redirect the user or handle it as needed
+          console.log("Login successful");
+        } else {
+          // Login failed, handle error
+          console.error("Login failed");
+        }
+      } catch (error) {
+        // Handle network error
+        console.error("Network error:", error);
+      }
+
+      // Clear the form fields after submission
       setEmail("");
       setPassword("");
     }
