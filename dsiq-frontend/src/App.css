@@ -28,6 +28,10 @@
   font-size: 30px;
 }
 
+.cursor-pointer {
+  cursor: pointer;
+}
+
 .form-error-msg {
   position: absolute;
   bottom: -22px;
