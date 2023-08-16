@@ -11,6 +11,7 @@ import CompanyInput from "../../common/InputFeilds/CompanyInput";
 
 import axios from "../../api/axios";
 const REGISTER_URL = "/register";
+
 const Register = () => {
   const [errMsg, setErrMsg] = useState("");
 

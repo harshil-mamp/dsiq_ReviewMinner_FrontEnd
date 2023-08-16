@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useState, useEffect, useContext } from "react";
 import { Row, Col, Form, Button } from "react-bootstrap";
 import PasswordInput from "../../common/InputFeilds/PasswordInput/index";
 import EmailInput from "../../common/InputFeilds/EmailInput/index";
@@ -6,7 +6,17 @@ import useFormValidation from "../../common/useFormValidation.js/index.js";
 import AuthLeft from "../auth-left";
 import "./index.css";
 
+import axios from "../../api/axios";
+import AuthContext from "../../context/AuthProvider";
+const LOGIN_URL = "/login";
+
 const Login = () => {
+  const { setAuth } = useContext(AuthContext);
+  const userRef = useRef();
+  const errRef = useRef();
+
+  const [errMsg, setErrMsg] = useState("");
+
   const {
     email,
     setEmail,
@@ -38,28 +48,37 @@ const Login = () => {
 
         console.log("*", loginDetails);
 
-        // Send a POST request to the login API endpoint
-        const response = await fetch("http://localhost:5000/login", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
+        const response = await axios.post(
+          LOGIN_URL,
+          JSON.stringify(loginDetails),
+          {
+            headers: { "Content-Type": "application/json" },
             Accept: "application/json",
-          },
-          body: JSON.stringify(loginDetails),
-        });
-        console.log(response);
-        if (response.ok) {
-          console.log("Login successful");
+            // withCredentials: true,
+          }
+        );
+        console.log("****", response);
+        setEmail("");
+        setPassword("");
+        const AccessToken = response?.data?.AccessToken;
+        setAuth({ email, password, AccessToken });
+        // if (response.ok) {
+        //   console.log("Login successful");
+        // } else {
+        //   console.error("Login failed");
+        // }
+      } catch (err) {
+        if (!err?.response) {
+          setErrMsg("No Server Response");
+        } else if (err.response?.status === 400) {
+          setErrMsg("Missing Username or Password");
+        } else if (err.response?.status === 401) {
+          setErrMsg("Unauthorized");
         } else {
-          console.error("Login failed");
+          setErrMsg("Login Failed");
         }
-      } catch (error) {
-        console.error("Network error:", error);
+        errRef.current.focus();
       }
-
-      // Clear the form fields after submission
-      setEmail("");
-      setPassword("");
     }
   };
 
@@ -77,6 +96,18 @@ const Login = () => {
           className="shadow-container p-4 d-flex flex-column justify-content-center"
           onSubmit={handleSubmit}
         >
+          <p
+            style={{ height: "56px" }}
+            ref={errRef}
+            className={
+              errMsg
+                ? "text-center p-3 text-danger"
+                : "text-center p-3 offscreen"
+            }
+            aria-live="assertive"
+          >
+            {errMsg}
+          </p>
           <EmailInput
             value={email}
             onChange={validateEmail}
