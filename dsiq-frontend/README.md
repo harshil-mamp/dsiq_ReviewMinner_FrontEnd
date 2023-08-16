@@ -26,4 +26,4 @@ Enter AWS Secret Access Key
 
 npm run build
 
-aws s3 sync build/ s3://reviewminner
+aws s3 sync build/ s3://reviewminer.com

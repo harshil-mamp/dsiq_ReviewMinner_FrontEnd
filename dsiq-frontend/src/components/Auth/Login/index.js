@@ -49,14 +49,11 @@ const Login = () => {
         });
         console.log(response);
         if (response.ok) {
-          // Login successful, you can redirect the user or handle it as needed
           console.log("Login successful");
         } else {
-          // Login failed, handle error
           console.error("Login failed");
         }
       } catch (error) {
-        // Handle network error
         console.error("Network error:", error);
       }
 

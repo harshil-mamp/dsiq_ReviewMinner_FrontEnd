@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Row, Col, Form, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import NameInput from "../../common/InputFeilds/NameInput";
@@ -9,7 +9,11 @@ import useFormValidation from "../../common/useFormValidation.js";
 import AuthLeft from "../auth-left";
 import CompanyInput from "../../common/InputFeilds/CompanyInput";
 
+import axios from "../../api/axios";
+const REGISTER_URL = "/register";
 const Register = () => {
+  const [errMsg, setErrMsg] = useState("");
+
   const {
     email,
     setEmail,
@@ -41,40 +45,8 @@ const Register = () => {
     validateCompany,
   } = useFormValidation();
   const navigate = useNavigate();
-
-  async function registerUser() {
-    const registerDetails = {
-      email: email,
-      password: password,
-      first_name: fname,
-      last_name: lname,
-      company_name: company,
-    };
-
-    try {
-      const response = await fetch("http://localhost:5000/register", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify(registerDetails),
-      });
-
-      if (response.ok) {
-        // Registration successful
-        navigate("/success");
-      } else {
-        // Handle registration error
-        console.error("Registration failed");
-      }
-    } catch (error) {
-      // Handle network error
-      console.error("Network error:", error);
-    }
-  }
-
-  const handleSubmit = (event) => {
+  const errRef = useRef();
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     if (
@@ -85,6 +57,7 @@ const Register = () => {
       !confirmPassword ||
       !company
     ) {
+      setErrMsg("Invalid Entry");
       validateFName(fname);
       validateLName(lname);
       validateEmail(email);
@@ -93,22 +66,41 @@ const Register = () => {
       validateCompany(company);
       return;
     }
-    if (
-      !emailError &&
-      !passwordError &&
-      !confirmPasswordError &&
-      !fNameError &&
-      !lNameError &&
-      !companyError
-    ) {
+
+    const registerDetails = {
+      email: email,
+      password: password,
+      first_name: fname,
+      last_name: lname,
+      company_name: company,
+    };
+
+    try {
+      const response = await axios.post(
+        REGISTER_URL,
+        JSON.stringify(registerDetails),
+        {
+          headers: { "Content-Type": "application/json" },
+          Accept: "application/json",
+          // withCredentials: true,
+        }
+      );
       setFName("");
       setLName("");
       setEmail("");
       setPassword("");
       setConfirmPassword("");
       setCompany("");
-      registerUser();
       navigate("/success");
+    } catch (error) {
+      console.error("Network error:", error);
+      if (!error?.response) {
+        setErrMsg("No Server Response");
+      } else if (error.response?.status === 404) {
+        setErrMsg("Username Taken");
+      } else {
+        setErrMsg("Registration Failed");
+      }
     }
   };
   return (
@@ -122,7 +114,19 @@ const Register = () => {
         className="d-flex mb-5 mb-md-0 justify-content-center align-items-center"
       >
         <div>
-          <h3 className="text-center fw-bold my-5">Create Your Account</h3>
+          <h3 className="text-center fw-bold my-3">Create Your Account</h3>
+          <p
+            style={{ height: "56px" }}
+            ref={errRef}
+            className={
+              errMsg
+                ? "text-center p-3 text-danger"
+                : "text-center p-3 offscreen"
+            }
+            aria-live="assertive"
+          >
+            {errMsg}
+          </p>
           <Form
             className="shadow-container p-4 d-flex flex-column justify-content-center"
             onSubmit={handleSubmit}
