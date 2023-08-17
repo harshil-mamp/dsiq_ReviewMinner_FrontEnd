@@ -1,4 +1,5 @@
-import React, { useRef, useState, useEffect, useContext } from "react";
+import React, { useRef, useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { Row, Col, Form, Button } from "react-bootstrap";
 import PasswordInput from "../../common/InputFeilds/PasswordInput/index";
 import EmailInput from "../../common/InputFeilds/EmailInput/index";
@@ -7,15 +8,13 @@ import AuthLeft from "../auth-left";
 import "./index.css";
 
 import axios from "../../api/axios";
-import AuthContext from "../../context/AuthProvider";
 const LOGIN_URL = "/login";
 
 const Login = () => {
-  const { setAuth } = useContext(AuthContext);
-  const userRef = useRef();
   const errRef = useRef();
 
   const [errMsg, setErrMsg] = useState("");
+  const navigate = useNavigate();
 
   const {
     email,
@@ -29,6 +28,7 @@ const Login = () => {
     showPassword,
     togglePasswordVisibility,
   } = useFormValidation();
+  console.log("*");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -46,8 +46,6 @@ const Login = () => {
           password: password,
         };
 
-        console.log("*", loginDetails);
-
         const response = await axios.post(
           LOGIN_URL,
           JSON.stringify(loginDetails),
@@ -57,16 +55,15 @@ const Login = () => {
             // withCredentials: true,
           }
         );
-        console.log("****", response);
         setEmail("");
         setPassword("");
+
         const AccessToken = response?.data?.AccessToken;
-        setAuth({ email, password, AccessToken });
-        // if (response.ok) {
-        //   console.log("Login successful");
-        // } else {
-        //   console.error("Login failed");
-        // }
+        localStorage.setItem("access_token", AccessToken);
+
+        if (localStorage.getItem("access_token")) {
+          navigate("/");
+        }
       } catch (err) {
         if (!err?.response) {
           setErrMsg("No Server Response");

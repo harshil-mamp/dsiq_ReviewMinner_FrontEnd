@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import EmailInput from "../../common/InputFeilds/EmailInput";
 import useFormValidation from "../../common/useFormValidation.js/index.js";
 import AuthLeft from "../auth-left";
+import axios from "../../api/axios";
+const FORGOTPW = "/forgot_pw";
 
 const ForgotPwd = () => {
   const { email, setEmail, validateEmail, emailError } = useFormValidation();
@@ -24,19 +26,15 @@ const ForgotPwd = () => {
     setLoading(true);
 
     try {
-      const response = await fetch("http://localhost:5000/forgot_pw", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email }), // Adjust the payload as needed
+      const response = await axios.post(FORGOTPW, JSON.stringify({ email }), {
+        headers: { "Content-Type": "application/json" },
+        Accept: "application/json",
       });
 
       if (response.ok) {
         setEmail("");
         navigate("/verify");
       } else {
-        // Handle error cases
         console.error("Error sending email:", response.status);
       }
     } catch (error) {

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef } from "react";
 import { Row, Col, Form, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import NameInput from "../../common/InputFeilds/NameInput";
@@ -98,7 +98,7 @@ const Register = () => {
       if (!error?.response) {
         setErrMsg("No Server Response");
       } else if (error.response?.status === 404) {
-        setErrMsg("Username Taken");
+        setErrMsg(error.response?.data?.message);
       } else {
         setErrMsg("Registration Failed");
       }

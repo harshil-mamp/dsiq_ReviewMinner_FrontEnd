@@ -3,6 +3,9 @@ import { Nav, Navbar, NavDropdown } from "react-bootstrap";
 import "./index.css";
 
 const Navbars = () => {
+  const handleSignOut = () => {
+    localStorage.removeItem("access_token");
+  };
   return (
     <div>
       <Navbar expand="lg" className="navbar-wrapper">
@@ -10,8 +13,8 @@ const Navbars = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link className="mx-2" href="/login">
-              Sign In
+            <Nav.Link className="mx-2" href="/login" onClick={handleSignOut}>
+              Sign Out
             </Nav.Link>
             <Nav.Link className="mx-2" href="/register">
               Create Your Account
