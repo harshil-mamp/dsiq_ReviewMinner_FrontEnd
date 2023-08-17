@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import ErrorPage from "./components/View/error";
 import Home from "./components/Home";
@@ -16,34 +17,67 @@ const Routers = () => {
     localStorage.getItem("access_token")
   );
 
-  useEffect(() => {
+  const navigate = useNavigate();
+
+  const checkAccessTokenValidity = () => {
     const token = localStorage.getItem("access_token");
-    setAccessToken(token);
+    if (!token) {
+      navigate("/login");
+      return;
+    }
+    // Additional logic to check token validity, e.g., expiration time
+  };
+
+  useEffect(() => {
+    checkAccessTokenValidity();
   }, []);
+
+  const redirectToHomeIfLoggedIn = (element) => {
+    return accessToken ? <Navigate to="/" replace /> : element;
+  };
 
   return (
     <div>
       <Routes>
+        <Route index exact path="/" element={<Home />} />
+
         <Route
           index
           exact
-          path="/"
-          element={
-            localStorage.getItem("access_token") ? (
-              <Home />
-            ) : (
-              <Navigate to="/login" replace />
-            )
-          }
+          path="/login"
+          element={redirectToHomeIfLoggedIn(<Login />)}
+        />
+        <Route
+          index
+          exact
+          path="/register"
+          element={redirectToHomeIfLoggedIn(<Register />)}
+        />
+        <Route
+          index
+          exact
+          path="/forgot-password"
+          element={redirectToHomeIfLoggedIn(<ForgotPwd />)}
+        />
+        <Route
+          index
+          exact
+          path="/verify"
+          element={redirectToHomeIfLoggedIn(<Verify />)}
         />
 
-        <Route index exact path="/login" element={<Login />} />
-        <Route index exact path="/forgot-password" element={<ForgotPwd />} />
-        <Route index exact path="/verify" element={<Verify />} />
-
-        <Route index exact path="/register" element={<Register />} />
-        <Route index exact path="/success" element={<Success />} />
-        <Route index exact path="/failed" element={<Failed />} />
+        <Route
+          index
+          exact
+          path="/success"
+          element={redirectToHomeIfLoggedIn(<Success />)}
+        />
+        <Route
+          index
+          exact
+          path="/failed"
+          element={redirectToHomeIfLoggedIn(<Failed />)}
+        />
         {/* Temporary 404 component */}
         <Route path="*" element={<ErrorPage />} />
 

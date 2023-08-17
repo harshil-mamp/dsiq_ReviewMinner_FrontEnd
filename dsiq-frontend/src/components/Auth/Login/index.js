@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { Row, Col, Form, Button } from "react-bootstrap";
 import PasswordInput from "../../common/InputFeilds/PasswordInput/index";
 import EmailInput from "../../common/InputFeilds/EmailInput/index";
@@ -58,8 +58,7 @@ const Login = () => {
         setEmail("");
         setPassword("");
 
-        const AccessToken = response?.data?.AccessToken;
-        localStorage.setItem("access_token", AccessToken);
+        localStorage.setItem("access_token", response?.data?.AccessToken);
 
         if (localStorage.getItem("access_token")) {
           navigate("/");
@@ -120,9 +119,9 @@ const Login = () => {
 
           <div className="mb-5 d-flex justify-content-between align-items-center">
             <div>
-              <a href="/forgot-password" style={{ color: "#3f4b55" }}>
+              <Link style={{ color: "#3f4b55" }} to="/forgot-password">
                 Can't access your account?
-              </a>
+              </Link>
             </div>
             <Button variant="primary" type="submit">
               Submit
@@ -130,13 +129,13 @@ const Login = () => {
           </div>
 
           <div className="d-flex justify-content-center align-items-center">
-            <a
+            <Link
               className="fs-subp"
               style={{ color: "#3f4b55", fontWeight: 600 }}
-              href="/register"
+              to="/register"
             >
               Create a new account
-            </a>
+            </Link>
           </div>
         </Form>
       </Col>
