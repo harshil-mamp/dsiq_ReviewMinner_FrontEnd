@@ -3,6 +3,7 @@
     min-height: 100vh;
     background: var(--primary);
     transition: width 0.3s;
+    position: fixed;
 }
 
 .sidebar-open {
