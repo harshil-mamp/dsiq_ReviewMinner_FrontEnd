@@ -1,6 +1,7 @@
 import React from "react";
 import Routers from "./Routers";
-import './App.css';
+import "@progress/kendo-theme-default/dist/all.css";
+import "./App.css";
 
 function App() {
   return (

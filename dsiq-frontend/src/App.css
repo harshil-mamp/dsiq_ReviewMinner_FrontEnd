@@ -8,6 +8,18 @@
   --shadow1: 2px 2px 10px #eeeeee, -2px -2px 10px #eeeeee;
 }
 
+/* --primary: #40474C;
+--secondary: #7D868E;
+--black: #303030;
+--white: #ffffff;
+--gray: #F0F0F0; */
+
+/* --primary: #2A3742;
+--secondary: #667B8E;
+--black: #00000;
+--white: #ffffff;
+--gray: #F6F9FC; */
+
 .shadow-container {
   box-shadow: var(--shadow1);
   border-radius: 2px;

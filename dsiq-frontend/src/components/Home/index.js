@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import Sidebar from "../Global/Sidebar";
 import Navbars from "../Global/Navbars/index";
-
 const Home = () => {
   return (
     <div className="d-flex">
