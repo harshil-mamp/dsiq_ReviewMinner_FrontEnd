@@ -1,6 +1,5 @@
 import React from "react";
 import { Button } from "react-bootstrap";
-import { CheckAll } from "react-bootstrap-icons";
 import DashboardImg from "../../assets/img/dashboard-img.svg";
 
 const AuthLeft = () => {
@@ -13,23 +12,24 @@ const AuthLeft = () => {
         </h3>
         <p className="my-3">With your trial you get:</p>
         <div className="mb-3 d-flex align-items-center">
-          <CheckAll cursor="pointer" color="#198754" />
+          <i class="fa-solid fa-check" style={{ color: "#198754" }}></i>
           <p className="ps-2">Preloaded data or upload your own</p>
         </div>
         <div className="mb-3 d-flex align-items-center">
-          <CheckAll cursor="pointer" color="#198754" />
+          <i class="fa-solid fa-check" style={{ color: "#198754" }}></i>
           <p className="ps-2">
             Preconfigured processes, reports and dashboards
           </p>
         </div>
         <div className="mb-3 d-flex align-items-center">
-          <CheckAll cursor="pointer" color="#198754" />
+          <i class="fa-solid fa-check" style={{ color: "#198754" }}></i>
           <p className="ps-2">
             Guided experience for sales, reps, leaders and administrators
           </p>
         </div>
         <div className="mb-3 d-flex align-items-center">
-          <CheckAll cursor="pointer" color="#198754" />
+          {/* <CheckAll cursor="pointer" color="#198754" /> */}
+          <i class="fa-solid fa-check" style={{ color: "#198754" }}></i>
           <p className="ps-2">Online training and live onboarding webinars</p>
         </div>
         <Button variant="outline-primary">START MY FREE TRIAL</Button>
