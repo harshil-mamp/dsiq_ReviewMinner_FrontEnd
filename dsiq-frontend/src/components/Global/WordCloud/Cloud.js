@@ -7,14 +7,15 @@ import d3Cloud from "d3-cloud";
 
 const Cloud = (props) => {
   const {
+    onSelectTopic,
     fontName,
     fontSizes,
     height,
-    onSelectTopic,
     selectedTopics,
     topics,
     width,
   } = props;
+  console.log("**", props);
 
   const [cloudDimensions, setCloudDimensions] = useState([]);
   const [isProcessing, setIsProcessing] = useState(true);

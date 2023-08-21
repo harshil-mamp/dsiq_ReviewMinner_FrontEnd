@@ -19,27 +19,44 @@ import Sidebar from "./Sidebar";
  * @returns {JSX.Element} The rendered component
  */
 const WordCloud = (props) => {
-  const [selectedTopics, setSelectedTopics] = useState([]);
+  console.log("***", props);
+  // const [selectedTopics, setSelectedTopics] = useState([]);
   /**
    * Click handler
    * @param {String} topic Whole topic object
    * @return {void}
    */
 
-  const onSelectTopic = (event, topic) => {
-    if (event.ctrlKey) {
-      // Check if the Control key was pressed
-      if (selectedTopics.find((t) => t.id === topic.id)) {
-        setSelectedTopics(selectedTopics.filter((t) => t.id !== topic.id));
-      } else {
-        setSelectedTopics([...selectedTopics, topic]);
-      }
-    } else {
-      setSelectedTopics([topic]); // If the Control key was not pressed, replace the selected topics with the clicked topic
-    }
-  };
+  // const onSelectTopic = (topic) => {
+  //   if (selectedTopics.find((t) => t.id === topic.id)) {
+  //     setSelectedTopics(selectedTopics.filter((t) => t.id !== topic.id));
+  //   } else {
+  //     setSelectedTopics([...selectedTopics, topic]);
+  //   }
+  // };
 
-  const { fontName, fontSizes, height, topics, width } = props;
+  // const onSelectTopic = (event, topic) => {
+  //   if (event.ctrlKey) {
+  //     if (selectedTopics.find((t) => t.id === topic.id)) {
+  //       setSelectedTopics(selectedTopics.filter((t) => t.id !== topic.id));
+  //     } else {
+  //       setSelectedTopics([...selectedTopics, topic]);
+  //     }
+  //   } else {
+  //     setSelectedTopics([topic]);
+  //   }
+  // };
+
+  const {
+    onSelectWord,
+    selectedWordData,
+    setSelectedWordData,
+    fontName,
+    fontSizes,
+    height,
+    topics,
+    width,
+  } = props;
 
   if (topics.length === 0) {
     return <span>No topics available.</span>;
@@ -54,13 +71,15 @@ const WordCloud = (props) => {
             fontName={fontName}
             fontSizes={fontSizes}
             height={height}
-            onSelectTopic={onSelectTopic}
-            selectedTopics={selectedTopics}
+            // onSelectTopic={onSelectTopic}
+            // selectedTopics={selectedTopics}
+            onSelectTopic={onSelectWord}
+            selectedTopics={selectedWordData}
             topics={topics}
             width={width}
           />
         </div>
-        <Sidebar topics={selectedTopics} />
+        <Sidebar topics={selectedWordData} />
       </div>
     </section>
   );

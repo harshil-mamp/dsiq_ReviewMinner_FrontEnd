@@ -1,142 +1,33 @@
 import React from "react";
 import Tree from "react-d3-tree";
 
-const orgChart = {
-  name: "CEO",
-  children: [
-    {
-      name: "Manager",
-      attributes: {
-        department: "Production",
-      },
-      children: [
-        {
-          name: "Foreman1",
-          attributes: {
-            department: "Fabrication",
-          },
-          children: [
-            {
-              name: "Worker",
-              children: [
-                {
-                  name: "Worker1",
-                },
-                {
-                  name: "Worker2",
-                },
-                {
-                  name: "Worker3",
-                },
-              ],
-            },
-          ],
-        },
-        {
-          name: "Foreman2",
-          attributes: {
-            department: "Assembly",
-          },
-          children: [
-            {
-              name: "Worker21",
-            },
-          ],
-        },
-      ],
-    },
-    {
-      name: "Manager",
-      attributes: {
-        department: "Production",
-      },
-      children: [
-        {
-          name: "Foreman3",
-          attributes: {
-            department: "Fabrication",
-          },
-          children: [
-            {
-              name: "Worker31",
-              children: [
-                {
-                  name: "Worker311",
-                },
-                {
-                  name: "Worker312",
-                  children: [
-                    {
-                      name: "Worker3121",
-                    },
-                    {
-                      name: "Worker3122",
-                    },
-                    {
-                      name: "Worker3123",
-                    },
-                  ],
-                },
-                {
-                  name: "Worker313",
-                },
-              ],
-            },
-          ],
-        },
-        {
-          name: "Foreman",
-          attributes: {
-            department: "Assembly",
-          },
-          children: [
-            {
-              name: "Worker41",
-            },
-          ],
-        },
-      ],
-    },
-    {
-      name: "Manager",
-      attributes: {
-        department: "Production",
-      },
-      children: [
-        {
-          name: "Foreman",
-          attributes: {
-            department: "Fabrication",
-          },
-          children: [
-            {
-              name: "Worker",
-            },
-          ],
-        },
-        {
-          name: "Foreman",
-          attributes: {
-            department: "Assembly",
-          },
-          children: [
-            {
-              name: "Worker",
-            },
-          ],
-        },
-      ],
-    },
-  ],
+const transformToHierarchy = (data) => {
+  console.log("*data", data);
+  const hierarchyData = {
+    name: "Root", // You can set a root node name here
+    children: data.map((item) => ({
+      name: item.label,
+      children: item.days.map((dayItem) => ({
+        name: dayItem.volume,
+      })),
+    })),
+  };
+
+  return hierarchyData;
 };
 
-const TreeChart = () => {
+const TreeChart = ({ selectedWordData }) => {
+  const treeData =
+    selectedWordData.length > 0
+      ? transformToHierarchy(selectedWordData)
+      : { name: "Single Node" };
+  console.log("****", selectedWordData);
   return (
     <div
       id="treeWrapper"
       style={{ width: "90%", margin: "0 auto", height: "100em" }}
     >
-      <Tree data={orgChart} />
+      <Tree data={treeData} />
     </div>
   );
 };

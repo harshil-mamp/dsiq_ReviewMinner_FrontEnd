@@ -8,6 +8,20 @@ const Home = () => {
   const [topics, setTopics] = React.useState([]);
   const [isFetching, setIsFetching] = React.useState(true);
   const [error, setError] = React.useState(null);
+  const [selectedWordData, setSelectedWordData] = useState([]);
+  console.log("*", selectedWordData);
+
+  const onSelectWord = (event, topic) => {
+    if (event.ctrlKey) {
+      if (selectedWordData.find((t) => t.id === topic.id)) {
+        setSelectedWordData(selectedWordData.filter((t) => t.id !== topic.id));
+      } else {
+        setSelectedWordData([...selectedWordData, topic]);
+      }
+    } else {
+      setSelectedWordData([topic]);
+    }
+  };
 
   React.useEffect(() => {
     fetch("topics.json") // Make sure the path is correct, it should be relative to the public directory
@@ -45,14 +59,19 @@ const Home = () => {
             {isFetching ? (
               <span>Fetching topics...</span>
             ) : error ? (
-              <span>Error: {error.toString()}</span>
+              <span>Error: {error.toString()}</span> // Render the error message as a string
             ) : (
-              <WordCloud topics={topics} />
+              <WordCloud
+                topics={topics}
+                selectedWordData={selectedWordData}
+                setSelectedWordData={setSelectedWordData}
+                onSelectWord={onSelectWord}
+              />
             )}
           </div>
           <div className="my-3 mx-2">
             <h1 className="text-center">Tree Graph</h1>
-            <TreeChart />
+            <TreeChart selectedWordData={selectedWordData} />
           </div>
         </div>
       </div>

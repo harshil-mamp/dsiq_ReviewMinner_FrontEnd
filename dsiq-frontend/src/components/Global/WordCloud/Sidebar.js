@@ -8,8 +8,9 @@ import PropTypes from "prop-types";
  */
 const Sidebar = (props) => {
   const { topics } = props;
+  console.log("**", topics);
 
-  if (topics.length === 0) {
+  if (topics == null) {
     return (
       <div className="wordcloud__container_sidebar">
         <div className="wordcloud__sidebar">
@@ -36,6 +37,15 @@ const Sidebar = (props) => {
               <th style={{ padding: "1rem" }}>Negative Mentions</th>
             </tr>
           </thead>
+          {/* <tbody>
+            {topics.map((topic) => (
+              <tr key={topic.id} className="wordcloud__sidebar_metatable_row">
+                <td className="wordcloud__sidebar_metatable_value">
+                  {topic.label}
+                </td>
+              </tr>
+            ))}
+          </tbody> */}
           <tbody>
             {topics.map((topic) => (
               <tr key={topic.id} className="wordcloud__sidebar_metatable_row">
