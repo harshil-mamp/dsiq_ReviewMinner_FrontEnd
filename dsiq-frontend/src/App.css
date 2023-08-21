@@ -8,6 +8,12 @@
   --shadow1: 2px 2px 10px #eeeeee, -2px -2px 10px #eeeeee;
 }
 
+/* --primary: #082340;
+--secondary: #125598;
+--black: #000000;
+--white: #ffffff;
+--gray: #F6F9FD; */
+
 /* --primary: #40474C;
 --secondary: #7D868E;
 --black: #303030;
@@ -142,7 +148,8 @@ body {
   background: var(--white);
   color: var(--black);
   margin: 0;
-  font-family: 'Montserrat', sans-serif;
+  /* font-family: 'Montserrat', sans-serif; */
+  font-family: 'Raleway', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -161,4 +168,8 @@ input[type="button"]:active {
 input[type="button"]::-moz-focus-inner {
   outline: none;
   border: none;
+}
+
+.k-notification-container {
+  margin: 6px;
 }

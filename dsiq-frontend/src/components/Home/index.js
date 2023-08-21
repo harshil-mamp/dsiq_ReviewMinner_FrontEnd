@@ -3,13 +3,18 @@ import Sidebar from "../Global/Sidebar";
 import Navbars from "../Global/Navbars/index";
 import WordCloud from "../Global/WordCloud";
 import TreeChart from "../Global/D3Tree/Tree";
+import Alert from "../common/Alert";
 
 const Home = () => {
   const [topics, setTopics] = React.useState([]);
   const [isFetching, setIsFetching] = React.useState(true);
   const [error, setError] = React.useState(null);
   const [selectedWordData, setSelectedWordData] = useState([]);
-  console.log("*", selectedWordData);
+  const [success, setSuccess] = useState(false);
+
+  const handleAlertClose = () => {
+    setSuccess(false);
+  };
 
   const onSelectWord = (event, topic) => {
     if (event.ctrlKey) {
@@ -54,6 +59,20 @@ const Home = () => {
       <div className="w-100">
         <Navbars />
         <h1 className="mx-auto my-5 text-center">Home</h1>
+        <div className="mx-auto d-flex justify-content-center">
+          <button
+            className="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base"
+            onClick={() => setSuccess(true)}
+          >
+            Save data
+          </button>
+          <Alert
+            type="info"
+            position="topRight"
+            success={success}
+            onClose={handleAlertClose}
+          />
+        </div>
         <div>
           <div className="my-3 mx-2">
             {isFetching ? (
