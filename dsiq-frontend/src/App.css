@@ -169,7 +169,3 @@ input[type="button"]::-moz-focus-inner {
   outline: none;
   border: none;
 }
-
-.k-notification-container {
-  margin: 6px;
-}

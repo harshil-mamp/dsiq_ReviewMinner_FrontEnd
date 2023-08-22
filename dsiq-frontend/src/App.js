@@ -2,6 +2,7 @@ import React from "react";
 import Routers from "./Routers";
 import "@progress/kendo-theme-default/dist/all.css";
 import "./App.css";
+import "./kendoui.css";
 
 function App() {
   return (

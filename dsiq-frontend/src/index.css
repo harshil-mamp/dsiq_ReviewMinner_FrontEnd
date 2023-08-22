@@ -7,13 +7,13 @@
   width: 8px;
   height: 8px;
   /* margin-top: 20px; */
-  background: #111111;
+  background: var(--gray);
   transition: all 1s ease;
 }
 
 ::-webkit-scrollbar-track {
   border-radius: 10px;
-  background-color: var(--black);
+  background-color: var(--gray);
 }
 
 ::-webkit-scrollbar-thumb {

@@ -1,0 +1,16 @@
+.k-dropdown .k-input {
+    color: var(--secondary);
+}
+
+.k-list .k-state-selected {
+    background-color: gray;
+}
+
+.k-notification-container {
+    margin: 6px;
+}
+
+.k-animation-container .k-popup .k-list .k-list-content .k-list-ul .k-list-item.k-selected,
+.k-selected {
+    background: var(--secondary) !important;
+}
