@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Sidebar from "../Global/Sidebar";
-import Navbars from "../Global/Navbars/index";
+// import Navbars from "../Global/Navbars/index";
 import WordCloud from "../Global/WordCloud";
 import TreeChart from "../Global/D3Tree/Tree";
 import Alert from "../common/Alert";
@@ -72,11 +72,11 @@ const Home = () => {
 
   return (
     <div className="d-flex">
-      <div style={{ width: "5em", zIndex: 1 }}>
+      {/* <div style={{ width: "5em", zIndex: 1 }}>
         <Sidebar />
-      </div>
+      </div> */}
       <div className="w-100">
-        <Navbars />
+        {/* <Navbars /> */}
         <h1 className="mx-auto my-5 text-center">Home</h1>
         <div className="mx-auto d-flex flex-column align-items-center justify-content-center">
           <button
@@ -92,7 +92,7 @@ const Home = () => {
             onClose={handleAlertClose}
           />
           <hr />
-          <Searchbar searchData={countries} />
+          <Searchbar searchData={countries} searchLabel={"Enter Country"} />
           <hr />
           <ObjectDropdown
             data={states}

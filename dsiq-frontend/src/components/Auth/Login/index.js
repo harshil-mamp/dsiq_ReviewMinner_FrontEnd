@@ -62,6 +62,7 @@ const Login = () => {
 
         if (localStorage.getItem("access_token")) {
           navigate("/");
+          window.location.reload();
         }
       } catch (err) {
         if (!err?.response) {

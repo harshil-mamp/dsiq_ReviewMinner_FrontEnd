@@ -1,38 +1,97 @@
 import React from "react";
-import { Nav, Navbar, NavDropdown } from "react-bootstrap";
+import {
+  Menu,
+  MenuItem,
+  AppBar,
+  AppBarSection,
+} from "@progress/kendo-react-layout";
+import { useNavigate } from "react-router-dom";
+import Searchbar from "../../common/Searchbar";
+import { countries } from "../../../data/countries";
 import "./index.css";
 
-const Navbars = () => {
+const Navbars = (props) => {
   const handleSignOut = () => {
     localStorage.removeItem("access_token");
   };
+  const navigate = useNavigate();
+
+  const onSelect = (event) => {
+    if (event.item.data.route) {
+      if (event.item.data.route == "/login") {
+        localStorage.removeItem("access_token");
+        navigate("/login");
+        window.location.reload();
+      } else {
+        navigate(event.item.data.route);
+      }
+    }
+  };
   return (
     <div>
-      <Navbar expand="lg" className="navbar-wrapper">
-        <Navbar.Brand href="#home"></Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link className="mx-2" href="/login" onClick={handleSignOut}>
-              Sign Out
-            </Nav.Link>
-            <Nav.Link className="mx-2" href="/register">
-              Create Your Account
-            </Nav.Link>
-            {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
-            </NavDropdown> */}
-          </Nav>
-        </Navbar.Collapse>
-      </Navbar>
+      <div className="navbar-wrap">
+        <AppBar>
+          <AppBarSection className="w-100">
+            <div className="w-100">
+              <div className="nav-items-wrap d-flex justify-content-between align-items-center">
+                <div>
+                  <Menu onSelect={onSelect}>
+                    <MenuItem
+                      text="Home"
+                      data={{
+                        route: "/",
+                      }}
+                    />
+                    <MenuItem
+                      text="Settings"
+                      data={{
+                        route: "/settings",
+                      }}
+                    />
+                    <MenuItem
+                      text="User"
+                      data={{
+                        route: "/users",
+                      }}
+                    ></MenuItem>
+                    <MenuItem
+                      text="Sign out"
+                      onClick={handleSignOut}
+                      data={{
+                        route: "/login",
+                      }}
+                    ></MenuItem>
+                  </Menu>
+                </div>
+                <div className="d-flex align-items-center">
+                  <Searchbar searchData={countries} />
+                  <div className="d-flex align-items-center navbar-icons">
+                    <i
+                      className="fa-solid mx-3 fa-question"
+                      style={{ color: "#fff" }}
+                    ></i>
+                    <i
+                      className="fa-solid mx-3 fa-gear"
+                      style={{ color: "#fff" }}
+                    ></i>
+                    <i
+                      className="fa-solid mx-3 fa-user"
+                      style={{ color: "#fff" }}
+                    ></i>
+                  </div>
+                </div>
+              </div>
+              <div
+                style={{
+                  padding: 10,
+                }}
+              >
+                {props.children}
+              </div>
+            </div>
+          </AppBarSection>
+        </AppBar>
+      </div>
     </div>
   );
 };

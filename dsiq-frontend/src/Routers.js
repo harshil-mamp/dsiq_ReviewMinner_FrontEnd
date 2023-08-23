@@ -10,6 +10,14 @@ import Register from "./components/Auth/Register/index";
 import Success from "./components/Auth/Register/success";
 import Failed from "./components/Auth/Register/failed";
 
+import Navbars from "./components/Global/Navbars/index";
+import Sidebar from "./components/Global/Sidebar";
+// Examples
+import Settings from "./components/View/example/settings";
+import Reviews from "./components/View/example/reviews";
+import Users from "./components/View/example/users";
+import Dashboard from "./components/View/example/dashboard";
+
 import { Route, Routes, Navigate } from "react-router-dom";
 
 const Routers = () => {
@@ -21,6 +29,7 @@ const Routers = () => {
 
   const checkAccessTokenValidity = () => {
     const token = localStorage.getItem("access_token");
+    console.log("***", token);
     if (!token) {
       navigate("/login");
       return;
@@ -29,6 +38,7 @@ const Routers = () => {
   };
 
   useEffect(() => {
+    setAccessToken(localStorage.getItem("access_token"));
     checkAccessTokenValidity();
   }, []);
 
@@ -38,9 +48,52 @@ const Routers = () => {
 
   return (
     <div>
-      <Routes>
-        <Route index exact path="/" element={<Home />} />
+      {accessToken && (
+        <div className="d-flex">
+          <div style={{ width: "5em", zIndex: 1 }}>
+            <Sidebar>
+              <Routes>
+                <Route index exact path="/" element={<Home />} />
 
+                <Route index exact path="/settings" element={<Settings />} />
+                <Route index exact path="/reviews" element={<Reviews />} />
+                <Route index exact path="/users" element={<Users />} />
+                <Route index exact path="/dashboard" element={<Dashboard />} />
+                {/* Temporary 404 component */}
+                <Route path="*" element={<ErrorPage />} />
+
+                {/* initially redirect to /login */}
+                <Route
+                  path="/login"
+                  element={<Navigate replace to="/login" />}
+                />
+              </Routes>
+            </Sidebar>
+          </div>
+          <div className="w-100">
+            <Navbars>
+              <Routes>
+                <Route index exact path="/" element={<Home />} />
+
+                <Route index exact path="/settings" element={<Settings />} />
+                <Route index exact path="/reviews" element={<Reviews />} />
+                <Route index exact path="/users" element={<Users />} />
+                <Route index exact path="/dashboard" element={<Dashboard />} />
+
+                {/* Temporary 404 component */}
+                <Route path="*" element={<ErrorPage />} />
+
+                {/* initially redirect to /login */}
+                <Route
+                  path="/login"
+                  element={<Navigate replace to="/login" />}
+                />
+              </Routes>
+            </Navbars>
+          </div>
+        </div>
+      )}
+      <Routes>
         <Route
           index
           exact
@@ -79,7 +132,7 @@ const Routers = () => {
           element={redirectToHomeIfLoggedIn(<Failed />)}
         />
         {/* Temporary 404 component */}
-        <Route path="*" element={<ErrorPage />} />
+        {/* <Route path="*" element={<ErrorPage />} /> */}
 
         {/* initially redirect to /login */}
         <Route path="/login" element={<Navigate replace to="/login" />} />

@@ -36,6 +36,54 @@
 }
 
 
+/* Sidebar- Panelbar */
+.k-panelbar>.k-item>.k-link,
+.k-panelbar>.k-panelbar-header>.k-link,
+.k-panelbar,
+.k-panelbar .k-link.k-hover,
+.k-item:hover {
+    color: var(--white) !important;
+    background-color: var(--primary) !important;
+    background: var(--primary) !important;
+    transition: none !important;
+}
+
+.k-panelbar .k-link {
+    cursor: pointer !important;
+}
+
+.k-panelbar>.k-panelbar-header>.k-link:hover,
+.k-panelbar .k-link:hover,
+.k-panelbar>.k-panelbar-header>.k-link.k-selected {
+    background-color: var(--secondary) !important;
+    background: var(--secondary) !important;
+}
+
+.k-panelbar .k-panelbar-expand,
+.k-panelbar .k-panelbar-collapse,
+.k-panelbar .k-panelbar-toggle,
+.k-menu:not(.k-context-menu)>.k-item {
+    color: var(--white) !important;
+}
+
+.k-panelbar .k-group>.k-item.k-level-1 .k-link,
+.k-panelbar .k-panelbar-group>.k-panelbar-item.k-level-1 .k-link {
+    padding-left: 24px !important;
+}
+
+.k-panelbar .k-group>.k-item.k-level-2 .k-link,
+.k-panelbar .k-panelbar-group>.k-panelbar-item.k-level-2 .k-link {
+    padding-left: 32px !important;
+}
+
+
+/* Searchbar */
+.kendoui-searchbar .k-input-md .k-input-inner {
+    padding-left: 32px;
+}
+
+
+
 /* .k-button,
 .k-multiselect .k-checkbox-label::before,
 .k-radio-label::before {

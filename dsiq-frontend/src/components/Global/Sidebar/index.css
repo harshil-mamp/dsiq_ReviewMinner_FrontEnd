@@ -12,13 +12,17 @@
     background: var(--primary);
 }
 
-.sidebar-wrapper .sidebar-icons {
-    width: 3em;
-    height: 3em;
+.sidebar-wrapper .sidebar-icons::before {
+    font-size: 30px;
+}
+
+.sidebar-heading {
+    height: 80px;
 }
 
 .sidebar-heading h3 {
     color: var(--white);
+    font-size: 20px;
 }
 
 .sidebar {

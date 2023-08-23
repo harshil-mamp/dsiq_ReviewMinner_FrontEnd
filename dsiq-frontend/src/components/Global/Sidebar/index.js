@@ -1,21 +1,27 @@
-import React, { useState } from "react";
-import { List, XLg } from "react-bootstrap-icons";
-import { Nav, Navbar, NavDropdown } from "react-bootstrap";
+import React, { useState, useEffect } from "react";
+import Sidemenu from "../../common/Sidemenu";
 
 import "./index.css";
 
-const Sidebar = () => {
+const Sidebar = (props) => {
   const [show, setShow] = useState(true);
-  const [showSubMenu, setShowSubMenu] = useState(false);
+  const [expandedItems, setExpandedItems] = useState([]);
 
   const toggleSidebar = () => {
     setShow(!show);
   };
 
-  const toggleSubMenu = () => {
-    setShowSubMenu(!showSubMenu);
-  };
+  useEffect(() => {
+    const storedExpandedItems = localStorage.getItem("expandedItems");
+    if (storedExpandedItems) {
+      setExpandedItems(JSON.parse(storedExpandedItems));
+    }
+  }, []);
 
+  const handleSidebarSelect = (expandedItems) => {
+    setExpandedItems(expandedItems);
+    localStorage.setItem("expandedItems", JSON.stringify(expandedItems));
+  };
   return (
     <div
       className={
@@ -23,51 +29,30 @@ const Sidebar = () => {
       }
     >
       <div>
-        <div className="d-flex pt-2 w-100">
+        <div className="d-flex w-100">
           {show ? (
-            <List
-              onClick={toggleSidebar}
-              className="sidebar-icons mx-auto p-2 cursor-pointer"
-              color="#fff"
-            />
+            <div className="sidebar-heading w-100 d-flex justify-content-center align-items-center">
+              <i
+                onClick={toggleSidebar}
+                className="fa-solid fa-bars sidebar-icons mx-auto p-2 cursor-pointer"
+                style={{ color: "#fff" }}
+              ></i>
+            </div>
           ) : (
             <div className="w-100">
               <div className="sidebar-heading w-100 d-flex align-items-center justify-content-between px-2">
-                <h3>ReviewMinner</h3>
-                <XLg
+                <h3>ReviewMiner</h3>
+                <i
                   onClick={toggleSidebar}
-                  className="sidebar-icons ms-auto p-2 cursor-pointer"
-                  color="#fff"
-                />
+                  style={{ color: "#fff" }}
+                  className="fa-solid fa-xmark sidebar-icons ms-auto p-2 cursor-pointer"
+                ></i>
               </div>
               <div className="sidebar-menu">
-                {/* <Navbar bg="dark" variant="dark" className="sidebar">
-                  <Nav defaultActiveKey="/home" className="flex-column">
-                    <Nav.Link href="/home">
-                      <List className="mr-2" />
-                      Home
-                    </Nav.Link>
-                    <Nav.Link href="/profile">
-                      <List className="mr-2" />
-                      Profile
-                    </Nav.Link>
-                    <NavDropdown
-                      title="Settings"
-                      id="settings-dropdown"
-                      show={showSubMenu}
-                      onClick={toggleSubMenu}
-                    >
-                      <NavDropdown.Item href="/settings/general">
-                        <List className="mr-2" />
-                        General
-                      </NavDropdown.Item>
-                      <NavDropdown.Item href="/settings/account">
-                        <List className="mr-2" />
-                        Account
-                      </NavDropdown.Item>
-                    </NavDropdown>
-                  </Nav>
-                </Navbar> */}
+                <Sidemenu
+                  initialExpandedItems={expandedItems}
+                  onSelect={handleSidebarSelect}
+                />
               </div>
             </div>
           )}

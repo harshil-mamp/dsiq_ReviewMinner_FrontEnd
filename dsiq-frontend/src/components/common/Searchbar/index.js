@@ -3,7 +3,7 @@ import { AutoComplete } from "@progress/kendo-react-dropdowns";
 import { filterBy } from "@progress/kendo-data-query";
 
 const delay = 500;
-const Searchbar = ({ searchData }) => {
+const Searchbar = ({ searchData, searchLabel }) => {
   const [data, setData] = useState(searchData);
   const [loading, setLoading] = useState(false);
   const [value, setValue] = useState("");
@@ -33,9 +33,14 @@ const Searchbar = ({ searchData }) => {
     setLoading(true);
   };
   return (
-    <div>
-      <div>Enter country:</div>
+    <div className="kendoui-searchbar position-relative">
+      <div>{searchLabel && searchLabel}</div>
+      <i
+        style={{ fontSize: "20px", zIndex: 1, bottom: "4px", left: "8px" }}
+        className="position-absolute fa-solid fa-magnifying-glass"
+      ></i>
       <AutoComplete
+        suggest={true}
         data={data}
         value={value}
         onChange={onChange}
