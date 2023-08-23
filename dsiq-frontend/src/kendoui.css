@@ -3,7 +3,7 @@
 }
 
 .k-list .k-state-selected {
-    background-color: gray;
+    background-color: var(--secondary);
 }
 
 .k-notification-container {
@@ -13,4 +13,41 @@
 .k-animation-container .k-popup .k-list .k-list-content .k-list-ul .k-list-item.k-selected,
 .k-selected {
     background: var(--secondary) !important;
+    background-color: var(--secondary) !important;
 }
+
+.k-checkbox:indeterminate,
+.k-checkbox.k-indeterminate {
+    border-color: rgba(0, 0, 0, 0.08);
+    color: var(--secondary);
+    background-color: #ffffff;
+}
+
+.k-checkbox:indeterminate,
+.k-checkbox.k-indeterminate {
+    background-image: none;
+}
+
+.k-checkbox:checked,
+.k-checkbox.k-checked {
+    border-color: var(--secondary);
+    color: white;
+    background-color: var(--secondary);
+}
+
+
+/* .k-button,
+.k-multiselect .k-checkbox-label::before,
+.k-radio-label::before {
+    background-color: var(--secondary) !important;
+    border-color: var(--secondary) !important;
+    color: white !important;
+}
+
+.k-dropdown .k-input,
+.k-multiselect .k-input,
+.k-list .k-item {
+    background-color: var(--secondary) !important;
+    border-color: var(--secondary) !important;
+    color: white !important;
+} */

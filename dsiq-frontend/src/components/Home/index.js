@@ -11,6 +11,7 @@ import DropInSearch from "../common/Dropdown/DropInSearch";
 import DropWithSearch from "../common/Dropdown/DropWithSearch";
 import MultiSelectFilter from "../common/Dropdown/MultiSelectFilter";
 import TreeDropdown from "../common/Dropdown/TreeDropdown";
+import TreeMultiSelect from "../common/Dropdown/TreeMultiSelect";
 
 import { countries } from "../../data/countries";
 import states from "../../data/states";
@@ -112,6 +113,8 @@ const Home = () => {
           <MultiSelectFilter searchData={statesArray} />
           <hr />
           <TreeDropdown searchData={treeData} />
+          <hr />
+          <TreeMultiSelect searchData={treeData} />
         </div>
         {/* <div>
           <div className="my-3 mx-2">
