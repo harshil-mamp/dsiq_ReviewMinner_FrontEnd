@@ -5,9 +5,15 @@ import {
   AppBar,
   AppBarSection,
 } from "@progress/kendo-react-layout";
+import { DropDownButton } from "@progress/kendo-react-buttons";
 import { useNavigate } from "react-router-dom";
 import Searchbar from "../../common/Searchbar";
 import { countries } from "../../../data/countries";
+import IconDropdown from "../../common/Dropdown/IconDropdown";
+import helpMenuItems from "../../../data/helpMenuItems";
+import userMenuItems from "../../../data/userMenuItems";
+import settingsMenuItems from "../../../data/settingsMenuItems";
+
 import "./index.css";
 
 const Navbars = (props) => {
@@ -27,6 +33,7 @@ const Navbars = (props) => {
       }
     }
   };
+
   return (
     <div>
       <div className="navbar-wrap">
@@ -66,18 +73,18 @@ const Navbars = (props) => {
                 <div className="d-flex align-items-center">
                   <Searchbar searchData={countries} />
                   <div className="d-flex align-items-center navbar-icons">
-                    <i
-                      className="fa-solid mx-3 fa-question"
-                      style={{ color: "#fff" }}
-                    ></i>
-                    <i
-                      className="fa-solid mx-3 fa-gear"
-                      style={{ color: "#fff" }}
-                    ></i>
-                    <i
-                      className="fa-solid mx-3 fa-user"
-                      style={{ color: "#fff" }}
-                    ></i>
+                    <IconDropdown
+                      data={helpMenuItems}
+                      icon={"fa-solid mx-2 fa-question"}
+                    />
+                    <IconDropdown
+                      data={settingsMenuItems}
+                      icon={"fa-solid mx-2 fa-gear"}
+                    />
+                    <IconDropdown
+                      data={userMenuItems}
+                      icon={"fa-solid mx-2 fa-user"}
+                    />
                   </div>
                 </div>
               </div>

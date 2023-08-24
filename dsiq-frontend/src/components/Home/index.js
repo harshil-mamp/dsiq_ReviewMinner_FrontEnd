@@ -12,6 +12,8 @@ import DropWithSearch from "../common/Dropdown/DropWithSearch";
 import MultiSelectFilter from "../common/Dropdown/MultiSelectFilter";
 import TreeDropdown from "../common/Dropdown/TreeDropdown";
 import TreeMultiSelect from "../common/Dropdown/TreeMultiSelect";
+import PrimaryBtn from "../common/Buttons/PrimaryBtn";
+import OutlineBtn from "../common/Buttons/OutlineBtn";
 
 import { countries } from "../../data/countries";
 import states from "../../data/states";
@@ -77,44 +79,55 @@ const Home = () => {
       </div> */}
       <div className="w-100">
         {/* <Navbars /> */}
-        <h1 className="mx-auto my-5 text-center">Home</h1>
-        <div className="mx-auto d-flex flex-column align-items-center justify-content-center">
-          <button
-            className="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base"
-            onClick={() => setSuccess(true)}
-          >
-            Save data
-          </button>
-          <Alert
-            type="info"
-            position="topRight"
-            success={success}
-            onClose={handleAlertClose}
-          />
-          <hr />
-          <Searchbar searchData={countries} searchLabel={"Enter Country"} />
-          <hr />
-          <ObjectDropdown
-            data={states}
-            initialValue={states[0]}
-            onChange={handleDropdownChange}
-          />
-          <hr />
-          <ArrayDropdown
-            data={statesArray}
-            initialValue={statesArray[0]}
-            onChange={handleDropdownChange}
-          />
-          <hr />
-          <DropInSearch searchData={states} />
-          <hr />
-          <DropWithSearch searchData={states} suggest={true} />
-          <hr />
-          <MultiSelectFilter searchData={statesArray} />
-          <hr />
-          <TreeDropdown searchData={treeData} />
-          <hr />
-          <TreeMultiSelect searchData={treeData} />
+        <div className="w-50 mx-auto p-3 shadow-container mt-3">
+          <h1 className="mx-auto my-5 text-center">Home</h1>
+          <div className="mx-auto d-flex flex-column align-items-center justify-content-center">
+            <button
+              className="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base"
+              onClick={() => setSuccess(true)}
+            >
+              Save data
+            </button>
+            <Alert
+              type="info"
+              position="topRight"
+              success={success}
+              onClose={handleAlertClose}
+            />
+            <hr />
+            <Searchbar searchData={countries} searchLabel={"Enter Country"} />
+            <hr />
+            <ObjectDropdown
+              data={states}
+              initialValue={states[0]}
+              onChange={handleDropdownChange}
+            />
+            <hr />
+            <ArrayDropdown
+              data={statesArray}
+              initialValue={statesArray[0]}
+              onChange={handleDropdownChange}
+            />
+            <hr />
+            <DropInSearch searchData={states} />
+            <hr />
+            <DropWithSearch searchData={states} suggest={true} />
+            <hr />
+            <MultiSelectFilter searchData={statesArray} />
+            <hr />
+            <TreeDropdown searchData={treeData} />
+            <hr />
+            <TreeMultiSelect searchData={treeData} />
+            <hr />
+            <div className="d-flex">
+              <div className="mx-2">
+                <PrimaryBtn icon={"fa fa-check fa-solid"} text={"submit"} />
+              </div>
+              <div className="mx-2">
+                <OutlineBtn icon={"fa fa-xmark fa-solid"} text={"cancel"} />
+              </div>
+            </div>
+          </div>
         </div>
         {/* <div>
           <div className="my-3 mx-2">

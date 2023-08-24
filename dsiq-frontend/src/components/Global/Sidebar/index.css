@@ -4,6 +4,7 @@
     background: var(--primary);
     transition: width 0.3s;
     position: fixed;
+    box-shadow: var(--shadow);
 }
 
 .sidebar-open {

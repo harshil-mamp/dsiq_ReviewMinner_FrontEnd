@@ -5,7 +5,9 @@
   --black: #303030;
   --white: #ffffff;
   --gray: #F6F8FA;
-  --shadow1: 2px 2px 10px #eeeeee, -2px -2px 10px #eeeeee;
+  /* --shadow1: 2px 2px 10px #eeeeee, -2px -2px 10px #eeeeee; */
+  --shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  --shadow1: rgba(191, 202, 212, 0.48) 3px 3px 10px 0px, rgba(233, 235, 236, 0.48) -3px -3px 10px 0px;
 }
 
 /* --primary: #082340;
@@ -27,8 +29,15 @@
 --gray: #F6F9FC; */
 
 .shadow-container {
+  /* box-shadow: var(--shadow1); */
   box-shadow: var(--shadow1);
-  border-radius: 2px;
+  border-radius: 4px;
+  background-color: var(--white);
+}
+
+.shadow-d-container {
+  box-shadow: var(--shadow);
+  border-radius: 4px;
 }
 
 .fs-p {
