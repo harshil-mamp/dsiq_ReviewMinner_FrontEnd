@@ -81,7 +81,7 @@ const Home = () => {
       </div> */}
       <div className="w-100">
         {/* <Navbars /> */}
-        <div className="home-wrapper mx-auto p-3 shadow-container mt-3">
+        <div className="home-wrapper mx-auto p-3 shadow-container my-3">
           <h1 className="mx-auto my-5 text-center">Home</h1>
           <div className="mx-auto d-flex flex-column align-items-center justify-content-center">
             <button

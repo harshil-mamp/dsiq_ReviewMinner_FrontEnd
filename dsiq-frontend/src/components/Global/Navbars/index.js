@@ -60,14 +60,14 @@ const Navbars = (props) => {
                       data={{
                         route: "/users",
                       }}
-                    ></MenuItem>
+                    ></MenuItem> */}
                     <MenuItem
                       text="Sign out"
                       onClick={handleSignOut}
                       data={{
                         route: "/login",
                       }}
-                    ></MenuItem> */}
+                    ></MenuItem>
                   </Menu>
                 </div>
                 <div className="d-flex align-items-center">

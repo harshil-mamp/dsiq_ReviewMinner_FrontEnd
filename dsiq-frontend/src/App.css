@@ -100,62 +100,14 @@ p {
   margin: 0;
 }
 
-.navbar-toggler {
-  z-index: 100 !important;
-}
-
-.btn-primary {
-  color: var(--white) !important;
-  background-color: var(--primary) !important;
-  border: 1px solid var(--primary) !important;
-}
-
-.btn-primary:hover {
-  color: var(--primary) !important;
-  background-color: var(--white) !important;
-  border: 1px solid var(--primary) !important;
-}
-
-.btn-outline-primary-check:checked+.btn-outline-primary,
-.btn-outline-primary.active,
-.btn-outline-primary.show,
-.btn-outline-primary:first-child:active,
-:not(.btn-outline-primary-check)+.btn-outline-primary:active,
-.btn-outline-primary {
-  background: var(--white) !important;
-  color: var(--primary) !important;
-  border: 1px solid transparent !important;
-}
-
-.btn-outline-primary:hover {
-  background: var(--primary) !important;
-  color: var(--white) !important;
-  border: 1px solid var(--white) !important;
-}
-
-.btn-check:active+.btn-primary:focus,
-.btn-check:checked+.btn-primary:focus,
-.btn-primary.active:focus,
-.btn-primary:active:focus,
-.show>.btn-primary.dropdown-toggle:focus,
-.btn:focus-visible,
-.btn-check:checked+.btn:focus-visible,
-.btn.active:focus-visible,
-.btn.show:focus-visible,
-.btn:first-child:active:focus-visible,
-:not(.btn-check)+.btn:active:focus-visible {
-  box-shadow: none !important;
-  transition: none !important;
-}
-
 /* set up the body */
 body {
   line-height: 1.5;
   min-height: 100vh;
   overflow-x: hidden;
   scroll-behavior: smooth;
-  background: var(--white);
-  color: var(--black);
+  background: var(--gray);
+  color: var(--primary);
   margin: 0;
   /* font-family: 'Montserrat', sans-serif; */
   font-family: 'Raleway', sans-serif;

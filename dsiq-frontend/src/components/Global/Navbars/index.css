@@ -9,7 +9,6 @@
 
 .k-menu {
     background-color: var(--primary) !important;
-    height: 80px;
 }
 
 .navbar-wrap,
@@ -17,6 +16,7 @@
     background-color: var(--primary) !important;
     box-shadow: var(--shadow);
     margin-left: auto;
+    z-index: 1;
 }
 
 .nav-items-wrap {
@@ -31,6 +31,7 @@
     flex-flow: row !important;
     align-items: baseline !important;
     justify-content: flex-start !important;
+    box-shadow: none;
 }
 
 .navbar-icons {
