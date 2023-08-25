@@ -36,14 +36,14 @@ const Navbars = (props) => {
 
   return (
     <div>
-      <div className="navbar-wrap">
+      <div className="navbar-wrap navbar-height navbar-width">
         <AppBar>
           <AppBarSection className="w-100">
             <div className="w-100">
-              <div className="nav-items-wrap d-flex justify-content-between align-items-center">
+              <div className="nav-items-wrap navbar-width navbar-height d-flex justify-content-between align-items-center">
                 <div>
                   <Menu onSelect={onSelect}>
-                    <MenuItem
+                    {/* <MenuItem
                       text="Home"
                       data={{
                         route: "/",
@@ -67,7 +67,7 @@ const Navbars = (props) => {
                       data={{
                         route: "/login",
                       }}
-                    ></MenuItem>
+                    ></MenuItem> */}
                   </Menu>
                 </div>
                 <div className="d-flex align-items-center">
@@ -75,26 +75,20 @@ const Navbars = (props) => {
                   <div className="d-flex align-items-center navbar-icons">
                     <IconDropdown
                       data={helpMenuItems}
-                      icon={"fa-solid mx-2 fa-question"}
+                      icon={"fa-solid mx-lg-2 mx-1 fa-question"}
                     />
                     <IconDropdown
                       data={settingsMenuItems}
-                      icon={"fa-solid mx-2 fa-gear"}
+                      icon={"fa-solid mx-lg-2 mx-1 fa-gear"}
                     />
                     <IconDropdown
                       data={userMenuItems}
-                      icon={"fa-solid mx-2 fa-user"}
+                      icon={"fa-solid mx-lg-2 mx-1 fa-user"}
                     />
                   </div>
                 </div>
               </div>
-              <div
-                style={{
-                  padding: 10,
-                }}
-              >
-                {props.children}
-              </div>
+              <div>{props.children}</div>
             </div>
           </AppBarSection>
         </AppBar>

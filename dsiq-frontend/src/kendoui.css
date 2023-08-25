@@ -110,3 +110,9 @@
     color: var(--primary);
     border-color: var(--primary);
 }
+
+
+/* Input-Searchbar */
+.k-input-inner {
+    z-index: 0;
+}

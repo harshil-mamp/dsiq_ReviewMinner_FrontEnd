@@ -21,6 +21,8 @@ import statesArray from "../../data/statesArray";
 import { treeData } from "../../data/tree-data";
 // const statesNamesArray = states.map((state) => state.text);
 
+import "./index.css";
+
 const Home = () => {
   const [topics, setTopics] = React.useState([]);
   const [isFetching, setIsFetching] = React.useState(true);
@@ -79,7 +81,7 @@ const Home = () => {
       </div> */}
       <div className="w-100">
         {/* <Navbars /> */}
-        <div className="w-50 mx-auto p-3 shadow-container mt-3">
+        <div className="home-wrapper mx-auto p-3 shadow-container mt-3">
           <h1 className="mx-auto my-5 text-center">Home</h1>
           <div className="mx-auto d-flex flex-column align-items-center justify-content-center">
             <button

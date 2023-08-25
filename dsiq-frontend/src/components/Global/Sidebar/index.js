@@ -25,13 +25,15 @@ const Sidebar = (props) => {
   return (
     <div
       className={
-        show ? "sidebar-wrapper sidebar-close" : "sidebar-wrapper sidebar-open"
+        show
+          ? "sidebar-wrapper sidebar-width-close sidebar-close"
+          : "sidebar-wrapper sidebar-width-open sidebar-open"
       }
     >
       <div>
         <div className="d-flex w-100">
           {show ? (
-            <div className="sidebar-heading w-100 d-flex justify-content-center align-items-center">
+            <div className="sidebar-nav-height w-100 d-flex justify-content-center align-items-center">
               <i
                 onClick={toggleSidebar}
                 className="fa-solid fa-bars sidebar-icons mx-auto p-2 cursor-pointer"
@@ -40,7 +42,7 @@ const Sidebar = (props) => {
             </div>
           ) : (
             <div className="w-100">
-              <div className="sidebar-heading w-100 d-flex align-items-center justify-content-between px-2">
+              <div className="sidebar-nav-height w-100 d-flex align-items-center justify-content-between px-2">
                 <h3>ReviewMiner</h3>
                 <i
                   onClick={toggleSidebar}

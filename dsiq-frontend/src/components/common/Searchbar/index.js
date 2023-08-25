@@ -47,7 +47,7 @@ const Searchbar = ({ searchData, searchLabel }) => {
         loading={loading}
         placeholder="Search here..."
         style={{
-          width: "300px",
+          width: "100%",
         }}
       />
     </div>

@@ -15,8 +15,12 @@
 .navbar-wrap,
 .nav-items-wrap {
     background-color: var(--primary) !important;
-    height: 80px;
     box-shadow: var(--shadow);
+    margin-left: auto;
+}
+
+.nav-items-wrap {
+    position: fixed;
 }
 
 .k-appbar-light {
@@ -37,4 +41,10 @@
     font-size: 20px;
     cursor: pointer;
     color: var(--white);
+}
+
+@media only screen and (max-width: 992px) {
+    .navbar-icons {
+        margin: 0 10px 0 20px;
+    }
 }

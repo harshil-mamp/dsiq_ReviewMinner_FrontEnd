@@ -178,3 +178,41 @@ input[type="button"]::-moz-focus-inner {
   outline: none;
   border: none;
 }
+
+/* Sidebar Navbar Setup */
+.navbar-height,
+.sidebar-nav-height {
+  height: 80px;
+}
+
+.navbar-width {
+  width: calc(100% - 85px);
+}
+
+.sidebar-width-close {
+  width: 85px;
+}
+
+.sidebar-width-open {
+  width: 300px;
+}
+
+@media only screen and (max-width: 992px) {
+
+  .navbar-height,
+  .sidebar-nav-height {
+    height: 60px;
+  }
+
+  .navbar-width {
+    width: calc(100% - 65px);
+  }
+
+  .sidebar-width-close {
+    width: 65px;
+  }
+
+  .sidebar-width-open {
+    width: 250px;
+  }
+}

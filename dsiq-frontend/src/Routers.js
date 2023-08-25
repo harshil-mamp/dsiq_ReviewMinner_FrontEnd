@@ -49,8 +49,8 @@ const Routers = () => {
   return (
     <div>
       {accessToken && (
-        <div className="d-flex">
-          <div style={{ width: "5em", zIndex: 1 }}>
+        <div>
+          <div>
             <Sidebar>
               <Routes>
                 <Route index exact path="/" element={<Home />} />
@@ -70,8 +70,9 @@ const Routers = () => {
               </Routes>
             </Sidebar>
           </div>
-          <div className="w-100">
+          <div>
             <Navbars>
+              <div className="navbar-height"></div>
               <Routes>
                 <Route index exact path="/" element={<Home />} />
 
