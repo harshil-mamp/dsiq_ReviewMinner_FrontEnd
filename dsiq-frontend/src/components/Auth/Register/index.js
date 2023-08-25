@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
-import { Row, Col, Form, Button } from "react-bootstrap";
+import { Row, Col, Form } from "react-bootstrap";
+import PrimaryBtn from "../../common/Buttons/PrimaryBtn";
 import { useNavigate } from "react-router-dom";
 import NameInput from "../../common/InputFeilds/NameInput";
 import EmailInput from "../../common/InputFeilds/EmailInput";
@@ -170,9 +171,10 @@ const Register = () => {
                   Already have an account
                 </a>
               </div>
-              <Button variant="primary" type="submit">
+              {/* <Button variant="primary" type="submit">
                 Create Account
-              </Button>
+              </Button> */}
+              <PrimaryBtn text={"Create Account"} />
             </div>
           </Form>
         </div>

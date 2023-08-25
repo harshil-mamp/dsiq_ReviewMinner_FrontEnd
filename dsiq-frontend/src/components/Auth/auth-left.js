@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "react-bootstrap";
+import OutlineBtn from "../common/Buttons/OutlineBtn";
 import DashboardImg from "../../assets/img/dashboard-img.svg";
 
 const AuthLeft = () => {
@@ -32,7 +32,8 @@ const AuthLeft = () => {
           <i class="fa-solid fa-check" style={{ color: "#198754" }}></i>
           <p className="ps-2">Online training and live onboarding webinars</p>
         </div>
-        <Button variant="outline-primary">START MY FREE TRIAL</Button>
+        {/* <Button variant="outline-primary">START MY FREE TRIAL</Button> */}
+        <OutlineBtn text={"START MY FREE TRIAL"} />
       </div>
       <div className="vh-50">
         <img src={DashboardImg} alt="Dashboard" />

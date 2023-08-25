@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Row, Col, Form, Button } from "react-bootstrap";
+import PrimaryBtn from "../../common/Buttons/PrimaryBtn";
 import { useNavigate } from "react-router-dom";
 import EmailInput from "../../common/InputFeilds/EmailInput";
 import useFormValidation from "../../common/useFormValidation.js/index.js";
@@ -72,9 +73,10 @@ const ForgotPwd = () => {
               emailError={emailError}
             />
             <div className="mb-3 d-flex justify-content-end align-items-center">
-              <Button variant="primary" type="submit">
+              {/* <Button variant="primary" type="submit">
                 {loading ? "Sending..." : "Verify"}
-              </Button>
+              </Button> */}
+              <PrimaryBtn text={loading ? "Sending..." : "Verify"} />
             </div>
           </Form>
         </div>

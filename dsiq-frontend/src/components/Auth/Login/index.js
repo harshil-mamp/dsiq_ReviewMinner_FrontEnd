@@ -1,10 +1,11 @@
 import React, { useRef, useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { Row, Col, Form, Button } from "react-bootstrap";
+import { Row, Col, Form } from "react-bootstrap";
 import PasswordInput from "../../common/InputFeilds/PasswordInput/index";
 import EmailInput from "../../common/InputFeilds/EmailInput/index";
 import useFormValidation from "../../common/useFormValidation.js/index.js";
 import AuthLeft from "../auth-left";
+import PrimaryBtn from "../../common/Buttons/PrimaryBtn";
 import "./index.css";
 
 import axios from "../../api/axios";
@@ -124,9 +125,10 @@ const Login = () => {
                 Can't access your account?
               </Link>
             </div>
-            <Button variant="primary" type="submit">
+            {/* <Button variant="primary" type="submit">
               Submit
-            </Button>
+            </Button> */}
+            <PrimaryBtn text={"Submit"} />
           </div>
 
           <div className="d-flex justify-content-center align-items-center">
