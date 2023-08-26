@@ -6,7 +6,7 @@ import EmailInput from "../../common/InputFeilds/EmailInput/index";
 import useFormValidation from "../../common/useFormValidation.js/index.js";
 import AuthLeft from "../auth-left";
 import PrimaryBtn from "../../common/Buttons/PrimaryBtn";
-import "./index.css";
+import "../index.css";
 
 import axios from "../../api/axios";
 const LOGIN_URL = "/login";
@@ -29,7 +29,6 @@ const Login = () => {
     showPassword,
     togglePasswordVisibility,
   } = useFormValidation();
-  console.log("*");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -88,7 +87,7 @@ const Login = () => {
       <Col
         span={12}
         md={6}
-        className="login-right-part p-0 d-flex justify-content-center align-items-center"
+        className="login-right-part bg-white bg-gray p-0 d-flex justify-content-center align-items-center"
       >
         <Form
           className="shadow-container p-4 d-flex flex-column justify-content-center"

@@ -10,26 +10,7 @@
   --shadow1: rgba(191, 202, 212, 0.48) 3px 3px 10px 0px, rgba(233, 235, 236, 0.48) -3px -3px 10px 0px;
 }
 
-/* --primary: #082340;
---secondary: #125598;
---black: #000000;
---white: #ffffff;
---gray: #F6F9FD; */
-
-/* --primary: #40474C;
---secondary: #7D868E;
---black: #303030;
---white: #ffffff;
---gray: #F0F0F0; */
-
-/* --primary: #2A3742;
---secondary: #667B8E;
---black: #00000;
---white: #ffffff;
---gray: #F6F9FC; */
-
 .shadow-container {
-  /* box-shadow: var(--shadow1); */
   box-shadow: var(--shadow1);
   border-radius: 4px;
   background-color: var(--white);
@@ -38,22 +19,6 @@
 .shadow-d-container {
   box-shadow: var(--shadow);
   border-radius: 4px;
-}
-
-.fs-p {
-  font-size: 16px;
-}
-
-.fs-subp {
-  font-size: 20px;
-}
-
-.fs-subhead {
-  font-size: 24px;
-}
-
-.fs-xl {
-  font-size: 30px;
 }
 
 .cursor-pointer {
@@ -69,66 +34,6 @@
   position: absolute;
   right: 50px;
   bottom: 8px;
-}
-
-/* Box sizing */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  outline: none;
-  scroll-behavior: smooth;
-}
-
-/* Globally Elements */
-li {
-  list-style: none;
-}
-
-a {
-  text-decoration: none;
-}
-
-/* Reset margins */
-body,
-h1,
-h2,
-h3,
-h4,
-h5,
-p {
-  margin: 0;
-}
-
-/* set up the body */
-body {
-  line-height: 1.5;
-  min-height: 100vh;
-  overflow-x: hidden;
-  scroll-behavior: smooth;
-  background: var(--gray);
-  color: var(--primary);
-  margin: 0;
-  /* font-family: 'Montserrat', sans-serif; */
-  font-family: 'Raleway', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-/* make images easier to work with */
-img {
-  max-width: 100%;
-  display: block;
-}
-
-/* Remove Outline on Buttons */
-input[type="button"]:active {
-  outline: none;
-}
-
-input[type="button"]::-moz-focus-inner {
-  outline: none;
-  border: none;
 }
 
 /* Sidebar Navbar Setup */

@@ -53,7 +53,7 @@ const ForgotPwd = () => {
       <Col
         span={12}
         md={6}
-        className="login-right-part d-flex justify-content-center align-items-center"
+        className="login-right-part bg-gray d-flex justify-content-center align-items-center"
       >
         <div>
           <h3 className="text-center mt-5 mt-md-0 fw-bold">
@@ -64,7 +64,7 @@ const ForgotPwd = () => {
             for reset your password.
           </p>
           <Form
-            className="mx-auto position-relative shadow-container p-4 d-flex flex-column justify-content-center"
+            className="mx-auto bg-white position-relative shadow-container p-4 d-flex flex-column justify-content-center"
             onSubmit={handleSubmit}
           >
             <EmailInput

@@ -3,6 +3,7 @@ import Routers from "./Routers";
 import "@progress/kendo-theme-default/dist/all.css";
 import "./App.css";
 import "./kendoui.css";
+import "./theme.css";
 
 function App() {
   return (

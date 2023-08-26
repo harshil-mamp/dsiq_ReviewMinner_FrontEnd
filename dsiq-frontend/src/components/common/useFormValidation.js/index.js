@@ -48,10 +48,8 @@ const useFormValidation = () => {
   };
 
   const validateFName = (value) => {
-    console.log("*", value);
     setFName(value);
     if (!value.trim()) {
-      console.log("fdfdv");
       setFNameError("First name is required");
     } else {
       setFNameError("");

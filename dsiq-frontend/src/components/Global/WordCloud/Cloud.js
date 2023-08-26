@@ -15,7 +15,6 @@ const Cloud = (props) => {
     topics,
     width,
   } = props;
-  console.log("**", props);
 
   const [cloudDimensions, setCloudDimensions] = useState([]);
   const [isProcessing, setIsProcessing] = useState(true);

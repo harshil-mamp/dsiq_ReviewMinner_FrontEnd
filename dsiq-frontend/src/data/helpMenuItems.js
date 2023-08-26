@@ -9,7 +9,7 @@ const helpMenuItems = [
   },
   {
     text: "Knowledge Base",
-    route: "/dashboard",
+    route: "/knowledge-base",
   },
 ];
 

@@ -11,7 +11,7 @@ const Failed = () => {
       <Col
         span={12}
         md={6}
-        className="login-right-part d-flex justify-content-center align-items-center"
+        className="login-right-part bg-gray d-flex justify-content-center align-items-center"
       >
         <div className="my-5">
           <h3 className="text-center fw-bold">Verification Failed</h3>

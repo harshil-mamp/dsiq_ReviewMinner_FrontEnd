@@ -5,28 +5,13 @@
     overflow-y: hidden;
 }
 
-.login-left-part h3,
-.login-left-part p {
-    color: var(--white);
-}
-
-.login-left-part button {
-    font-weight: 700;
-    width: max-content;
-}
-
 .login-left-part img {
     max-width: 800px;
     margin: 0 auto 100px;
     width: 75%;
 }
 
-.login-right-part {
-    background: var(--gray);
-}
-
 .login-right-part form {
-    background: var(--white);
     width: 400px;
     max-width: 400px;
 }

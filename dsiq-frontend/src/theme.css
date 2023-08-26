@@ -1,0 +1,195 @@
+/* Background */
+.bg-primary {
+    background-color: var(--primary);
+    background: var(--primary);
+}
+
+.bg-gray {
+    background-color: var(--gray);
+    background: var(--gray);
+}
+
+.bg-white {
+    background-color: var(--white);
+    background: var(--white);
+}
+
+.bg-black {
+    background-color: var(--black);
+    background: var(--black);
+}
+
+.bg-secondary {
+    background-color: var(--secondary);
+    background: var(--secondary);
+}
+
+/* Letter Space */
+.letter-spacing-1 {
+    letter-spacing: 1px;
+}
+
+.letter-spacing-2 {
+    letter-spacing: 2px;
+}
+
+.letter-spacing-3 {
+    letter-spacing: 3px;
+}
+
+.letter-spacing-4 {
+    letter-spacing: 4px;
+}
+
+.letter-spacing-5 {
+    letter-spacing: 5px;
+}
+
+/* Fonts */
+.font-white {
+    color: var(--white);
+}
+
+.font-black {
+    color: var(--black);
+}
+
+.font-gray {
+    color: var(--gray);
+}
+
+.font-primary {
+    color: var(--primary);
+}
+
+.font-secondary {
+    color: var(--secondary);
+}
+
+.font-xs {
+    font-size: 14px;
+}
+
+.font-sm {
+    font-size: 16px;
+}
+
+.font-md {
+    font-size: 20px;
+}
+
+.font-lg {
+    font-size: 24px;
+}
+
+.font-xl {
+    font-size: 30px;
+}
+
+.font-xxl {
+    font-size: 40px;
+}
+
+@media only screen and (max-width: 1200px) {
+    .font-xs {
+        font-size: 12px;
+    }
+
+    .font-sm {
+        font-size: 14px;
+    }
+
+    .font-md {
+        font-size: 18px;
+    }
+
+    .font-lg {
+        font-size: 21px;
+    }
+
+    .font-xl {
+        font-size: 27px;
+    }
+
+    .font-xxl {
+        font-size: 35px;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .font-xs {
+        font-size: 10px;
+    }
+
+    .font-sm {
+        font-size: 12px;
+    }
+
+    .font-md {
+        font-size: 16px;
+    }
+
+    .font-lg {
+        font-size: 18px;
+    }
+
+    .font-xl {
+        font-size: 25px;
+    }
+
+    .font-xxl {
+        font-size: 32px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .font-xs {
+        font-size: 8px;
+    }
+
+    .font-sm {
+        font-size: 10px;
+    }
+
+    .font-md {
+        font-size: 14px;
+    }
+
+    .font-lg {
+        font-size: 16px;
+    }
+
+    .font-xl {
+        font-size: 22px;
+    }
+
+    .font-xxl {
+        font-size: 30px;
+    }
+}
+
+@media only screen and (max-width: 574px) {
+    .font-xs {
+        font-size: 6px;
+    }
+
+    .font-sm {
+        font-size: 8px;
+    }
+
+    .font-md {
+        font-size: 12px;
+    }
+
+    .font-lg {
+        font-size: 14px;
+    }
+
+    .font-xl {
+        font-size: 20px;
+    }
+
+    .font-xxl {
+        font-size: 27px;
+    }
+}

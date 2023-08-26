@@ -19,7 +19,6 @@ import Sidebar from "./Sidebar";
  * @returns {JSX.Element} The rendered component
  */
 const WordCloud = (props) => {
-  console.log("***", props);
   // const [selectedTopics, setSelectedTopics] = useState([]);
   /**
    * Click handler

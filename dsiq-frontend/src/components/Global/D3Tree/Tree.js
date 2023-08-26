@@ -2,7 +2,6 @@ import React from "react";
 import Tree from "react-d3-tree";
 
 const transformToHierarchy = (data) => {
-  console.log("*data", data);
   const hierarchyData = {
     name: "Root", // You can set a root node name here
     children: data.map((item) => ({
@@ -21,7 +20,6 @@ const TreeChart = ({ selectedWordData }) => {
     selectedWordData.length > 0
       ? transformToHierarchy(selectedWordData)
       : { name: "Single Node" };
-  console.log("****", selectedWordData);
   return (
     <div
       id="treeWrapper"

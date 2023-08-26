@@ -8,7 +8,6 @@ import PropTypes from "prop-types";
  */
 const Sidebar = (props) => {
   const { topics } = props;
-  console.log("**", topics);
 
   if (topics == null) {
     return (

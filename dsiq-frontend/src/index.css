@@ -1,3 +1,63 @@
+/* Box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  outline: none;
+  scroll-behavior: smooth;
+}
+
+/* Globally Elements */
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Reset margins */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  margin: 0;
+}
+
+/* set up the body */
+body {
+  line-height: 1.5;
+  min-height: 100vh;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  background: var(--gray);
+  color: var(--primary);
+  margin: 0;
+  /* font-family: 'Montserrat', sans-serif; */
+  font-family: 'Raleway', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* make images easier to work with */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Remove Outline on Buttons */
+input[type="button"]:active {
+  outline: none;
+}
+
+input[type="button"]::-moz-focus-inner {
+  outline: none;
+  border: none;
+}
+
 *:focus {
   outline: none !important;
   box-shadow: none !important;

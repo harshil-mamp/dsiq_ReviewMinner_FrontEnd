@@ -52,7 +52,7 @@ const Home = () => {
   };
 
   React.useEffect(() => {
-    fetch("topics.json") // Make sure the path is correct, it should be relative to the public directory
+    fetch("topics.json")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -76,11 +76,7 @@ const Home = () => {
 
   return (
     <div className="d-flex">
-      {/* <div style={{ width: "5em", zIndex: 1 }}>
-        <Sidebar />
-      </div> */}
       <div className="w-100">
-        {/* <Navbars /> */}
         <div className="home-wrapper mx-auto p-3 shadow-container my-3">
           <h1 className="mx-auto my-5 text-center">Home</h1>
           <div className="mx-auto d-flex flex-column align-items-center justify-content-center">

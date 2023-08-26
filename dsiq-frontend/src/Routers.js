@@ -12,6 +12,10 @@ import Failed from "./components/Auth/Register/failed";
 
 import Navbars from "./components/Global/Navbars/index";
 import Sidebar from "./components/Global/Sidebar";
+
+// Pages
+import KnowledgeBase from "./components/View/Help/KnowledgeBase";
+
 // Examples
 import Settings from "./components/View/example/settings";
 import Reviews from "./components/View/example/reviews";
@@ -29,7 +33,6 @@ const Routers = () => {
 
   const checkAccessTokenValidity = () => {
     const token = localStorage.getItem("access_token");
-    console.log("***", token);
     if (!token) {
       navigate("/login");
       return;
@@ -59,6 +62,14 @@ const Routers = () => {
                 <Route index exact path="/reviews" element={<Reviews />} />
                 <Route index exact path="/users" element={<Users />} />
                 <Route index exact path="/dashboard" element={<Dashboard />} />
+
+                <Route
+                  index
+                  exact
+                  path="/knowledge-base"
+                  element={<KnowledgeBase />}
+                />
+
                 {/* Temporary 404 component */}
                 <Route path="*" element={<ErrorPage />} />
 
@@ -80,6 +91,13 @@ const Routers = () => {
                 <Route index exact path="/reviews" element={<Reviews />} />
                 <Route index exact path="/users" element={<Users />} />
                 <Route index exact path="/dashboard" element={<Dashboard />} />
+
+                <Route
+                  index
+                  exact
+                  path="/knowledge-base"
+                  element={<KnowledgeBase />}
+                />
 
                 {/* Temporary 404 component */}
                 <Route path="*" element={<ErrorPage />} />

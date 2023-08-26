@@ -1,6 +1,5 @@
 import React from "react";
 import { Form, InputGroup, OverlayTrigger, Tooltip } from "react-bootstrap";
-import { Eye, EyeSlash, InfoCircle } from "react-bootstrap-icons";
 
 const ConfirmPasswordInput = ({
   value,
@@ -25,18 +24,21 @@ const ConfirmPasswordInput = ({
         />
         <div
           className="pwd-feild-eye"
-          style={{ cursor: "pointer" }}
+          style={{ cursor: "pointer", zIndex: 100 }}
           onClick={togglePassword}
         >
           {showPassword ? (
-            <EyeSlash color="#3f4b55" />
+            <i class="fa-regular fa-eye-slash" style={{ color: "#3f4b55" }}></i>
           ) : (
-            <Eye color="#3f4b55" />
+            <i class="fa-regular fa-eye" style={{ color: "#3f4b55" }}></i>
           )}
         </div>
         <InputGroup.Text>
           <OverlayTrigger placement="top" overlay={tooltip}>
-            <InfoCircle cursor="pointer" color="#3f4b55" />
+            <i
+              className="cursor-pointer fa-solid fa-circle-info"
+              style={{ color: "#3f4b55" }}
+            ></i>
           </OverlayTrigger>
         </InputGroup.Text>
       </InputGroup>
