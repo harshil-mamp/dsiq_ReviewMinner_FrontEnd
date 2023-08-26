@@ -1,11 +1,11 @@
 const userMenuItems = [
   {
     text: "Profile",
-    route: "/users",
+    route: "/profile",
   },
   {
     text: "Privacy",
-    route: "/settings",
+    route: "/privacy",
   },
   {
     text: "Log Out",

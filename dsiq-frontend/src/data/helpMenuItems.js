@@ -1,11 +1,11 @@
 const helpMenuItems = [
   {
     text: "Help Center",
-    route: "/settings",
+    route: "/help-center",
   },
   {
     text: "FAQs",
-    route: "/users",
+    route: "/faqs",
   },
   {
     text: "Knowledge Base",

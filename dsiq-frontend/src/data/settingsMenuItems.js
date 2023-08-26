@@ -1,15 +1,15 @@
 const settingsMenuItems = [
   {
     text: "Manage Users",
-    route: "/users",
+    route: "/manage-users",
   },
   {
     text: "Retailers",
-    route: "/settings",
+    route: "/manage-retailers",
   },
   {
     text: "Billing",
-    route: "/dashboard",
+    route: "/billing",
   },
 ];
 

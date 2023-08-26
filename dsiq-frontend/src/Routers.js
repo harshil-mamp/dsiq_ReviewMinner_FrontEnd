@@ -14,12 +14,19 @@ import Navbars from "./components/Global/Navbars/index";
 import Sidebar from "./components/Global/Sidebar";
 
 // Pages
-import KnowledgeBase from "./components/View/Help/KnowledgeBase";
+import KnowledgeBase from "./components/View/NavItems/Help/KnowledgeBase";
+import HelpCenter from "./components/View/NavItems/Help/HelpCenter";
+import FAQs from "./components/View/NavItems/Help/FAQs";
+import Billing from "./components/View/NavItems/Settings/Billing";
+import Retailers from "./components/View/NavItems/Settings/Retailers";
+import Users from "./components/View/NavItems/Settings/Users";
+import Privacy from "./components/View/NavItems/User/Privacy";
+import Profile from "./components/View/NavItems/User/Profile";
 
 // Examples
 import Settings from "./components/View/example/settings";
 import Reviews from "./components/View/example/reviews";
-import Users from "./components/View/example/users";
+// import Users from "./components/View/example/users";
 import Dashboard from "./components/View/example/dashboard";
 
 import { Route, Routes, Navigate } from "react-router-dom";
@@ -60,7 +67,6 @@ const Routers = () => {
 
                 <Route index exact path="/settings" element={<Settings />} />
                 <Route index exact path="/reviews" element={<Reviews />} />
-                <Route index exact path="/users" element={<Users />} />
                 <Route index exact path="/dashboard" element={<Dashboard />} />
 
                 <Route
@@ -69,6 +75,23 @@ const Routers = () => {
                   path="/knowledge-base"
                   element={<KnowledgeBase />}
                 />
+                <Route
+                  index
+                  exact
+                  path="/help-center"
+                  element={<HelpCenter />}
+                />
+                <Route index exact path="/faqs" element={<FAQs />} />
+                <Route index exact path="/billing" element={<Billing />} />
+                <Route
+                  index
+                  exact
+                  path="/manage-retailers"
+                  element={<Retailers />}
+                />
+                <Route index exact path="/manage-users" element={<Users />} />
+                <Route index exact path="/privacy" element={<Privacy />} />
+                <Route index exact path="/profile" element={<Profile />} />
 
                 {/* Temporary 404 component */}
                 <Route path="*" element={<ErrorPage />} />
@@ -98,6 +121,23 @@ const Routers = () => {
                   path="/knowledge-base"
                   element={<KnowledgeBase />}
                 />
+                <Route
+                  index
+                  exact
+                  path="/help-center"
+                  element={<HelpCenter />}
+                />
+                <Route index exact path="/faqs" element={<FAQs />} />
+                <Route index exact path="/billing" element={<Billing />} />
+                <Route
+                  index
+                  exact
+                  path="/manage-retailers"
+                  element={<Retailers />}
+                />
+                <Route index exact path="/manage-users" element={<Users />} />
+                <Route index exact path="/privacy" element={<Privacy />} />
+                <Route index exact path="/profile" element={<Profile />} />
 
                 {/* Temporary 404 component */}
                 <Route path="*" element={<ErrorPage />} />
