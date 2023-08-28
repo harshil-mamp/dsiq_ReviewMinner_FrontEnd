@@ -9,11 +9,14 @@ import ConfirmPasswordInput from "../../common/InputFeilds/ConfirmPasswordInput"
 import useFormValidation from "../../common/useFormValidation.js";
 import AuthLeft from "../auth-left";
 import CompanyInput from "../../common/InputFeilds/CompanyInput";
+import Spinner from "../../common/Spinner";
+import { useLoading } from "../../../context/LoadingProvider";
 
 import axios from "../../api/axios";
 const REGISTER_URL = "/register";
 
 const Register = () => {
+  const { loading, startLoading, stopLoading } = useLoading();
   const [errMsg, setErrMsg] = useState("");
 
   const {
@@ -76,7 +79,7 @@ const Register = () => {
       last_name: lname,
       company_name: company,
     };
-
+    startLoading();
     try {
       const response = await axios.post(
         REGISTER_URL,
@@ -103,83 +106,91 @@ const Register = () => {
       } else {
         setErrMsg("Registration Failed");
       }
+    } finally {
+      stopLoading();
     }
   };
   return (
-    <Row className="login-content">
-      <Col className="login-left-part" span={12} md={6}>
-        <AuthLeft />
-      </Col>
-      <Col
-        span={12}
-        md={6}
-        className="d-flex mb-5 mb-md-0 justify-content-center align-items-center"
-      >
-        <div>
-          <h3 className="text-center fw-bold my-3">Create Your Account</h3>
-          <p
-            style={{ height: "56px" }}
-            ref={errRef}
-            className={
-              errMsg
-                ? "text-center p-3 text-danger"
-                : "text-center p-3 offscreen"
-            }
-            aria-live="assertive"
+    <div>
+      {loading ? (
+        <Spinner />
+      ) : (
+        <Row className="login-content">
+          <Col className="login-left-part" span={12} md={6}>
+            <AuthLeft />
+          </Col>
+          <Col
+            span={12}
+            md={6}
+            className="d-flex mb-5 mb-md-0 justify-content-center align-items-center"
           >
-            {errMsg}
-          </p>
-          <Form
-            className="shadow-container p-4 d-flex flex-column justify-content-center"
-            onSubmit={handleSubmit}
-          >
-            <NameInput
-              fvalue={fname}
-              onChangeF={validateFName}
-              fNameError={fNameError}
-              lvalue={lname}
-              onChangeL={validateLName}
-              lNameError={lNameError}
-            />
-            <EmailInput
-              value={email}
-              onChange={validateEmail}
-              emailError={emailError}
-            />
-            <PasswordInput
-              value={password}
-              onChange={validatePassword}
-              showPassword={showPassword}
-              togglePassword={togglePasswordVisibility}
-              passwordError={passwordError}
-            />
-            <ConfirmPasswordInput
-              value={confirmPassword}
-              onChange={validateConfirmPassword}
-              showPassword={showConfirmPassword}
-              togglePassword={toggleConfirmPasswordVisibility}
-              passwordError={confirmPasswordError}
-            />
-            <CompanyInput
-              value={company}
-              onChange={validateCompany}
-              companyError={companyError}
-            />
-            <div className="mb-5 d-flex justify-content-between align-items-center">
-              <div>
-                <a href="/login" style={{ color: "#3f4b55" }}>
-                  Already have an account
-                </a>
-              </div>
-              {/* <Button variant="primary" type="submit">
+            <div>
+              <h3 className="text-center fw-bold my-3">Create Your Account</h3>
+              <p
+                style={{ height: "56px" }}
+                ref={errRef}
+                className={
+                  errMsg
+                    ? "text-center p-3 text-danger"
+                    : "text-center p-3 offscreen"
+                }
+                aria-live="assertive"
+              >
+                {errMsg}
+              </p>
+              <Form
+                className="shadow-container p-4 d-flex flex-column justify-content-center"
+                onSubmit={handleSubmit}
+              >
+                <NameInput
+                  fvalue={fname}
+                  onChangeF={validateFName}
+                  fNameError={fNameError}
+                  lvalue={lname}
+                  onChangeL={validateLName}
+                  lNameError={lNameError}
+                />
+                <EmailInput
+                  value={email}
+                  onChange={validateEmail}
+                  emailError={emailError}
+                />
+                <PasswordInput
+                  value={password}
+                  onChange={validatePassword}
+                  showPassword={showPassword}
+                  togglePassword={togglePasswordVisibility}
+                  passwordError={passwordError}
+                />
+                <ConfirmPasswordInput
+                  value={confirmPassword}
+                  onChange={validateConfirmPassword}
+                  showPassword={showConfirmPassword}
+                  togglePassword={toggleConfirmPasswordVisibility}
+                  passwordError={confirmPasswordError}
+                />
+                <CompanyInput
+                  value={company}
+                  onChange={validateCompany}
+                  companyError={companyError}
+                />
+                <div className="mb-5 d-flex justify-content-between align-items-center">
+                  <div>
+                    <a href="/login" style={{ color: "#3f4b55" }}>
+                      Already have an account
+                    </a>
+                  </div>
+                  {/* <Button variant="primary" type="submit">
                 Create Account
               </Button> */}
-              <PrimaryBtn text={"Create Account"} />
+                  <PrimaryBtn text={"Create Account"} />
+                </div>
+              </Form>
             </div>
-          </Form>
-        </div>
-      </Col>
-    </Row>
+          </Col>
+        </Row>
+      )}
+    </div>
   );
 };
 

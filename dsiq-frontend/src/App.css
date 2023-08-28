@@ -41,6 +41,18 @@
   bottom: 8px;
 }
 
+.div-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.div-center-wrap {
+  position: relative;
+  min-height: 100vh;
+}
+
 /* Sidebar Navbar Setup */
 .navbar-height,
 .sidebar-nav-height {
