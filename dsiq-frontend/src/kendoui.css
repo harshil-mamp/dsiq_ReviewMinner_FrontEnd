@@ -115,3 +115,29 @@
 .k-input-inner {
     z-index: 0;
 }
+
+
+/* Accordion */
+.k-expander-title,
+.k-expander.k-expanded .k-expander-header {
+    color: var(--primary);
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+
+.k-expander.k-expanded .k-expander-header {
+    border-bottom: 1px solid var(--secondary);
+}
+
+.k-expander.k-focus {
+    box-shadow: none;
+}
+
+.k-expander.k-expanded {
+    box-shadow: var(--shadow1);
+}
+
+.k-expander+.k-expander.k-expanded,
+.k-expander.k-expanded+.k-expander {
+    margin-top: 12px !important;
+}
