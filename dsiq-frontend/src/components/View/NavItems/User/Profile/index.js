@@ -1,5 +1,5 @@
 import React from "react";
-import BG from "../../../../../assets/img/knowledge.jpg";
+import BG from "../../../../../assets/img/profile.jpg";
 import Heading from "../../heading";
 
 const Profile = () => {
