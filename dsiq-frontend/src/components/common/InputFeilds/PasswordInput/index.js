@@ -2,6 +2,7 @@ import React from "react";
 import { Form, InputGroup, OverlayTrigger, Tooltip } from "react-bootstrap";
 
 const PasswordInput = ({
+  label,
   value,
   onChange,
   showPassword,
@@ -17,7 +18,7 @@ const PasswordInput = ({
 
   return (
     <Form.Group className="position-relative mb-5" controlId="formGridPassword">
-      <Form.Label>Password</Form.Label>
+      <Form.Label>{label ? label : "Password"}</Form.Label>
       <InputGroup>
         <Form.Control
           type={showPassword ? "text" : "password"}

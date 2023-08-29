@@ -9,10 +9,35 @@ import { Avatar } from "@progress/kendo-react-layout";
 import NameInput from "../../../../common/InputFeilds/NameInput";
 import EmailInput from "../../../../common/InputFeilds/EmailInput";
 import CompanyInput from "../../../../common/InputFeilds/CompanyInput";
+import PhoneInput from "../../../../common/InputFeilds/PhoneInput";
+import AddressInput from "../../../../common/InputFeilds/AddressInput";
 import useFormValidation from "../../../../common/useFormValidation.js";
 
 const Profile = () => {
-  const [visible, setVisible] = useState(true);
+  const {
+    email,
+    setEmail,
+    validateEmail,
+    emailError,
+    fname,
+    setFName,
+    fNameError,
+    validateFName,
+    lname,
+    setLName,
+    lNameError,
+    validateLName,
+    company,
+    setCompany,
+    companyError,
+    validateCompany,
+    address,
+    setAddress,
+    addressError,
+    validateAddress,
+  } = useFormValidation();
+
+  const [visible, setVisible] = useState(false);
   const toggleDialog = () => {
     setVisible(!visible);
   };
@@ -21,7 +46,7 @@ const Profile = () => {
       <Heading image={BG} heading={"Your Profile"} />
       <div className="m-3">
         <div className="shadow-container">
-          <div className="p-3 d-flex justify-content-between align-items-center">
+          <div className="p-2 p-sm-3 d-flex justify-content-between align-items-center">
             <h3 className="font-md font-primary font-weight-700 letter-spacing-2">
               Your Details
             </h3>
@@ -35,35 +60,61 @@ const Profile = () => {
               <Dialog title={"Edit your details"} onClose={toggleDialog}>
                 <Form>
                   <Row>
-                    <NameInput />
+                    <NameInput
+                      fvalue={fname}
+                      onChangeF={validateFName}
+                      fNameError={fNameError}
+                      lvalue={lname}
+                      onChangeL={validateLName}
+                      lNameError={lNameError}
+                    />
                   </Row>
                   <Row>
-                    <EmailInput />
+                    <EmailInput
+                      value={email}
+                      onChange={validateEmail}
+                      emailError={emailError}
+                    />
                   </Row>
                   <Row>
-                    <CompanyInput />
+                    <CompanyInput
+                      value={company}
+                      onChange={validateCompany}
+                      companyError={companyError}
+                    />
                   </Row>
+                  <Row>
+                    <PhoneInput />
+                  </Row>
+                  <Row>
+                    <AddressInput
+                      value={address}
+                      onChange={validateAddress}
+                      companyError={addressError}
+                    />
+                  </Row>
+                  <PrimaryBtn text={"Submit"} />
                 </Form>
-                <DialogActionsBar>
+                {/* <DialogActionsBar>
                   <button
                     className="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base"
                     onClick={toggleDialog}
                   >
-                    No
+                    Cancel
                   </button>
                   <button
                     className="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base"
                     onClick={toggleDialog}
                   >
-                    Yes
+                    Submit
                   </button>
-                </DialogActionsBar>
+                </DialogActionsBar> */}
               </Dialog>
             )}
           </div>
-          <div className="p-3">
+          <div className="p-2 p-sm-3">
             <Row>
-              <Col span={12} md={3}>
+              <Col xs={2} sm={1}>
                 <Avatar
                   rounded="full"
                   type="text"
@@ -74,9 +125,9 @@ const Profile = () => {
                   {"P"}
                 </Avatar>
               </Col>
-              <Col span={12} md={9}>
+              <Col xs={10} sm={11}>
                 <Row>
-                  <Col span={12} md={6}>
+                  <Col span={12} sm={6}>
                     <div className="d-flex align-items-center">
                       <p className="font-sm font-weight-600 font-primary">
                         First Name:{" "}
@@ -84,7 +135,7 @@ const Profile = () => {
                       </p>
                     </div>
                   </Col>
-                  <Col span={12} md={6}>
+                  <Col span={12} sm={6}>
                     <div className="d-flex align-items-center">
                       <p className="font-sm font-weight-600 font-primary">
                         Last Name:{" "}
@@ -94,7 +145,7 @@ const Profile = () => {
                   </Col>
                 </Row>
                 <Row className="mt-2">
-                  <Col span={12} md={6}>
+                  <Col span={12} sm={6}>
                     <div className="d-flex align-items-center">
                       <p className="font-sm font-weight-600 font-primary">
                         Email:{" "}
@@ -104,7 +155,7 @@ const Profile = () => {
                       </p>
                     </div>
                   </Col>
-                  <Col span={12} md={6}>
+                  <Col span={12} sm={6}>
                     <div className="d-flex align-items-center">
                       <p className="font-sm font-weight-600 font-primary">
                         Phone:{" "}
@@ -116,17 +167,17 @@ const Profile = () => {
                   </Col>
                 </Row>
                 <Row className="mt-2">
-                  <Col span={12} md={6}>
+                  <Col span={12} sm={6}>
                     <div className="d-flex align-items-center">
                       <p className="font-sm font-weight-600 font-primary">
                         Address:{" "}
                         <span className="ms-2 font-weight-500">
-                          prahladnagar, Ahmedabad, Gujarat.
+                          Prahladnagar, Ahmedabad, Gujarat.
                         </span>
                       </p>
                     </div>
                   </Col>
-                  <Col span={12} md={6}>
+                  <Col span={12} sm={6}>
                     <div className="d-flex align-items-center">
                       <p className="font-sm font-weight-600 font-primary">
                         Company:

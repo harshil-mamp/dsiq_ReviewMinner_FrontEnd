@@ -61,6 +61,7 @@
 
 .navbar-width {
   width: calc(100% - 85px);
+  z-index: 100;
 }
 
 .sidebar-width-close {

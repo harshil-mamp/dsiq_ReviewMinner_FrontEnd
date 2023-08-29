@@ -16,6 +16,8 @@ const useFormValidation = () => {
   const [confirmPasswordError, setConfirmPasswordError] = useState("");
   const [company, setCompany] = useState("");
   const [companyError, setCompanyError] = useState("");
+  const [address, setAddress] = useState("");
+  const [addressError, setAddressError] = useState("");
 
   const validateEmail = (value) => {
     setEmail(value);
@@ -68,9 +70,18 @@ const useFormValidation = () => {
   const validateCompany = (value) => {
     setCompany(value);
     if (!value.trim()) {
-      setCompanyError("Last name is required");
+      setCompanyError("Company is required");
     } else {
       setCompanyError("");
+    }
+  };
+
+  const validateAddress = (value) => {
+    setAddress(value);
+    if (!value.trim()) {
+      setAddressError("Address is required");
+    } else {
+      setAddressError("");
     }
   };
 
@@ -113,6 +124,10 @@ const useFormValidation = () => {
     setCompany,
     companyError,
     validateCompany,
+    address,
+    setAddress,
+    addressError,
+    validateAddress,
   };
 };
 
