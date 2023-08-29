@@ -3,7 +3,8 @@ import { Row, Col, Form } from "react-bootstrap";
 import BG from "../../../../../assets/img/profile.jpg";
 import Heading from "../../heading";
 import PrimaryBtn from "../../../../common/Buttons/PrimaryBtn";
-import { Dialog, DialogActionsBar } from "@progress/kendo-react-dialogs";
+import { Dialog } from "@progress/kendo-react-dialogs";
+import { Upload } from "@progress/kendo-react-upload";
 import { Avatar } from "@progress/kendo-react-layout";
 
 import NameInput from "../../../../common/InputFeilds/NameInput";
@@ -13,26 +14,33 @@ import PhoneInput from "../../../../common/InputFeilds/PhoneInput";
 import AddressInput from "../../../../common/InputFeilds/AddressInput";
 import useFormValidation from "../../../../common/useFormValidation.js";
 
+import bgImg from "../../../../../assets/img/user-bg.png";
+
+const fileStatuses = [
+  "UploadFailed",
+  "Initial",
+  "Selected",
+  "Uploading",
+  "Uploaded",
+  "RemoveFailed",
+  "Removing",
+];
+
 const Profile = () => {
   const {
     email,
-    setEmail,
     validateEmail,
     emailError,
     fname,
-    setFName,
     fNameError,
     validateFName,
     lname,
-    setLName,
     lNameError,
     validateLName,
     company,
-    setCompany,
     companyError,
     validateCompany,
     address,
-    setAddress,
     addressError,
     validateAddress,
   } = useFormValidation();
@@ -41,6 +49,14 @@ const Profile = () => {
   const toggleDialog = () => {
     setVisible(!visible);
   };
+
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  const onAdd = (event) => {
+    const selectedFile = event.affectedFiles[0];
+    setSelectedImage(URL.createObjectURL(selectedFile.getRawFile()));
+  };
+
   return (
     <div>
       <Heading image={BG} heading={"Your Profile"} />
@@ -59,6 +75,51 @@ const Profile = () => {
             {visible && (
               <Dialog title={"Edit your details"} onClose={toggleDialog}>
                 <Form>
+                  <div className="mb-3 d-flex align-items-center">
+                    <div className="d-flex align-items-center">
+                      <Avatar
+                        rounded="full"
+                        type={"image"}
+                        size="large"
+                        style={{
+                          marginRight: 5,
+                        }}
+                      >
+                        {selectedImage ? (
+                          <img
+                            src={selectedImage}
+                            alt={"Selected Avatar"}
+                            style={{
+                              width: 64,
+                              height: 64,
+                            }}
+                          />
+                        ) : (
+                          <img
+                            src={bgImg}
+                            alt="KendoReact Avatar Customer Image"
+                            style={{
+                              width: 64,
+                              height: 64,
+                            }}
+                          />
+                        )}
+                      </Avatar>
+                    </div>
+                    <Upload
+                      className="w-100"
+                      batch={false}
+                      multiple={false}
+                      onAdd={onAdd}
+                      withCredentials={false}
+                      saveUrl={
+                        "https://demos.telerik.com/kendo-ui/service-v4/upload/save"
+                      }
+                      removeUrl={
+                        "https://demos.telerik.com/kendo-ui/service-v4/upload/remove"
+                      }
+                    />
+                  </div>
                   <Row>
                     <NameInput
                       fvalue={fname}
@@ -114,18 +175,26 @@ const Profile = () => {
           </div>
           <div className="p-2 p-sm-3">
             <Row>
-              <Col xs={2} sm={1}>
+              <Col xs={2} lg={1} className="d-flex align-items-center">
                 <Avatar
                   rounded="full"
-                  type="text"
+                  type={"image"}
+                  size="large"
                   style={{
                     marginRight: 5,
                   }}
                 >
-                  {"P"}
+                  <img
+                    src={selectedImage ? selectedImage : bgImg}
+                    alt="KendoReact Avatar Customer Image"
+                    style={{
+                      width: 64,
+                      height: 64,
+                    }}
+                  />
                 </Avatar>
               </Col>
-              <Col xs={10} sm={11}>
+              <Col xs={10} lg={11}>
                 <Row>
                   <Col span={12} sm={6}>
                     <div className="d-flex align-items-center">

@@ -53,6 +53,45 @@
   min-height: 100vh;
 }
 
+/* Navbar Items */
+.navitem-dropdown .k-svg-icon,
+.navitem-dropdown .k-input-inner,
+.navitem-dropdown .k-clear-value {
+  display: none !important;
+}
+
+.navitem-dropdown-popup {
+  right: -10px;
+  width: auto;
+  position: absolute;
+}
+
+.navitem-dropdown .k-button {
+  background: url('./assets/img/icons/settings.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: var(--primary);
+  border: none !important;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  box-shadow: none;
+}
+
+.navitem-dropdown.k-picker-solid,
+.navitem-dropdown.k-picker-solid:hover,
+.navitem-dropdown.k-picker-solid.k-hover {
+  border: none;
+  background-image: none;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.k-treeview-item {
+  cursor: pointer;
+}
+
 /* Sidebar Navbar Setup */
 .navbar-height,
 .sidebar-nav-height {

@@ -10,13 +10,11 @@ import PrimaryBtn from "../../../../common/Buttons/PrimaryBtn";
 const Privacy = () => {
   const {
     password,
-    setPassword,
     validatePassword,
     passwordError,
     showPassword,
     togglePasswordVisibility,
     confirmPassword,
-    setConfirmPassword,
     confirmPasswordError,
     validateConfirmPassword,
     showConfirmPassword,

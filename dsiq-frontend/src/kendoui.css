@@ -96,6 +96,10 @@
     background-color: var(--secondary);
 }
 
+.k-button-solid-base {
+    background-image: none;
+}
+
 /* Buttons */
 .primary-btn .k-button,
 .outline-btn .k-button:hover {
