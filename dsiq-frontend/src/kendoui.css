@@ -152,8 +152,8 @@
 .k-switch-md {
     height: 15px;
     width: 35px;
-    border-color: var(--secondary);
-    color: var(--secondary);
+    border-color: var(--primary);
+    color: var(--primary);
 }
 
 .k-switch-md .k-switch-thumb {
@@ -163,7 +163,7 @@
 }
 
 .k-switch-off .k-switch-thumb {
-    background-color: var(--secondary);
+    background-color: var(--primary);
 }
 
 .k-switch-md.k-switch-off .k-switch-thumb-wrap {
@@ -175,9 +175,29 @@
 }
 
 .k-switch-on .k-switch-track {
-    border-color: var(--secondary);
+    border-color: var(--primary);
     color: white;
-    background-color: var(--secondary);
+    background-color: var(--primary);
+}
+
+.billing-switch .k-switch-md .k-switch-track,
+.billing-switch .k-switch-md {
+    height: 26px;
+    width: 50px;
+}
+
+.billing-switch .k-switch-md .k-switch-thumb {
+    width: 20px;
+    height: 20px;
+
+}
+
+.billing-switch .k-switch-md.k-switch-off .k-switch-thumb-wrap {
+    left: 13px;
+}
+
+.billing-switch .k-switch-md.k-switch-on .k-switch-thumb-wrap {
+    left: calc(100% - 13px);
 }
 
 /* Dialog */
