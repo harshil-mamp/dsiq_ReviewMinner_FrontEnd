@@ -2,6 +2,7 @@ import React from "react";
 import { Form, Row, Col } from "react-bootstrap";
 
 const NameInput = ({
+  defaultFname,
   fvalue,
   lvalue,
   onChangeF,
@@ -20,6 +21,7 @@ const NameInput = ({
           <Form.Control
             type="text"
             placeholder="Enter your first name"
+            defaultValue={defaultFname}
             value={fvalue}
             onChange={(e) => onChangeF(e.target.value)}
           />

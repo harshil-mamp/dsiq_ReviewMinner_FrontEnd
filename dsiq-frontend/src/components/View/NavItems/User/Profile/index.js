@@ -16,16 +16,6 @@ import useFormValidation from "../../../../common/useFormValidation.js";
 
 import bgImg from "../../../../../assets/img/user-bg.png";
 
-const fileStatuses = [
-  "UploadFailed",
-  "Initial",
-  "Selected",
-  "Uploading",
-  "Uploaded",
-  "RemoveFailed",
-  "Removing",
-];
-
 const Profile = () => {
   const {
     email,

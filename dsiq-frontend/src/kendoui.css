@@ -145,3 +145,44 @@
 .k-expander.k-expanded+.k-expander {
     margin-top: 12px !important;
 }
+
+
+/* Switch */
+.k-switch-md .k-switch-track,
+.k-switch-md {
+    height: 15px;
+    width: 35px;
+    border-color: var(--secondary);
+    color: var(--secondary);
+}
+
+.k-switch-md .k-switch-thumb {
+    width: 10px;
+    height: 10px;
+
+}
+
+.k-switch-off .k-switch-thumb {
+    background-color: var(--secondary);
+}
+
+.k-switch-md.k-switch-off .k-switch-thumb-wrap {
+    left: 8px;
+}
+
+.k-switch-md.k-switch-on .k-switch-thumb-wrap {
+    left: calc(100% - 8px);
+}
+
+.k-switch-on .k-switch-track {
+    border-color: var(--secondary);
+    color: white;
+    background-color: var(--secondary);
+}
+
+/* Dialog */
+.k-window-title {
+    letter-spacing: 1px;
+    font-weight: 700;
+    color: var(--primary);
+}
