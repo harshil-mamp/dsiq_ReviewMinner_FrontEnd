@@ -1,0 +1,50 @@
+{
+  "starter": {
+    "id": 1,
+    "name": "Starter",
+    "monthlyPrice": "$9.99",
+    "annualPrice": "$12.99",
+    "currentPlan": true,
+    "popular": false,
+    "listings": 50,
+    "retailers": 3,
+    "teamMembers": 3,
+    "emailAlerts": true,
+    "reviewMiner": false,
+    "reviewMedia": false,
+    "reviewMinerAI": false,
+    "exportReviews": true
+  },
+  "business": {
+    "id": 2,
+    "name": "Business",
+    "monthlyPrice": "$49.99",
+    "annualPrice": "$59.99",
+    "currentPlan": false,
+    "popular": true,
+    "listings": 200,
+    "retailers": 5,
+    "teamMembers": 10,
+    "emailAlerts": true,
+    "reviewMiner": true,
+    "reviewMedia": true,
+    "reviewMinerAI": true,
+    "exportReviews": true
+  },
+  "enterprise": {
+    "id": 3,
+    "name": "Enterprise",
+    "monthlyPrice": "$224.99",
+    "annualPrice": "$249.99",
+    "currentPlan": false,
+    "popular": false,
+    "listings": 500,
+    "retailers": "All Retailers",
+    "teamMembers": "Unlimited",
+    "emailAlerts": true,
+    "reviewMiner": true,
+    "reviewMedia": true,
+    "reviewMinerAI": true,
+    "exportReviews": true
+  }
+}
