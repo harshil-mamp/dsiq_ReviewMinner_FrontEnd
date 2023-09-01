@@ -45,7 +45,7 @@ const Billing = () => {
             </p>
             <div
               style={{
-                height: screenWidth < 768 ? "65px" : "115px",
+                height: screenWidth < 768 ? "70px" : "115px",
                 borderBottom: "1px solid #2A3741",
               }}
               className="w-100"

@@ -16,17 +16,17 @@ const settingsMenuItems = [
     items: [
       {
         text: "Current Subscription",
-        route: "/manage-users",
+        route: "/billing",
         id: 4,
       },
       {
         text: "Invoices",
-        route: "/manage-retailers",
+        route: "/billing",
         id: 5,
       },
       {
         text: "Upgrade Plan",
-        route: "/users",
+        route: "/billing",
         id: 6,
       },
       {

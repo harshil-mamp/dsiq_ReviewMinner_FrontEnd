@@ -127,7 +127,7 @@ const Home = () => {
             </div>
           </div>
         </div>
-        {/* <div>
+        <div>
           <div className="my-3 mx-2">
             {isFetching ? (
               <span>Fetching topics...</span>
@@ -146,7 +146,7 @@ const Home = () => {
             <h1 className="text-center">Tree Graph</h1>
             <TreeChart selectedWordData={selectedWordData} />
           </div>
-        </div> */}
+        </div>
       </div>
     </div>
   );
