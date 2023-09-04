@@ -5,6 +5,7 @@ const OutlineBtn = ({ text, disable, icon, fontWeight, onClick }) => {
   return (
     <div className="outline-btn">
       <Button
+        className="font-sm font-primary letter-spacing-1"
         style={{ fontWeight: fontWeight }}
         disabled={disable ? disable : false}
         iconClass={icon}

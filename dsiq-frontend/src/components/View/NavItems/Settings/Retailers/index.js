@@ -97,10 +97,10 @@ const Retailers = () => {
               onClick={toggleDialogAddRetailer}
             />
           </div>
-          <Row className="my-3">
+          <Row className="my-3 mx-1">
             {retailers &&
               retailers.map((retailer, index) => (
-                <Col xs={3} className="p-3">
+                <Col xs={6} md={3} className="p-lg-3 p-md-2 p-1">
                   <div className="shadow-container p-2 d-flex flex-column justify-content-center align-items-center">
                     <img className="py-2" src={retailer.logo} alt="Logo" />
                     <h3 className="py-3 font-md text-center font-primary font-weight-700 letter-spacing-2">
