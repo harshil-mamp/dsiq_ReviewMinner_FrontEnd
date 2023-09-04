@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { ComboBox } from "@progress/kendo-react-dropdowns";
 import { filterBy } from "@progress/kendo-data-query";
 
-const DropWithSearch = ({ searchData, suggest, onChange }) => {
+const DropWithSearch = ({ label, searchData, suggest, onChange }) => {
   const [data, setData] = useState(searchData.slice());
   const filterData = (filter) => {
     const data = searchData.slice();
@@ -19,7 +19,7 @@ const DropWithSearch = ({ searchData, suggest, onChange }) => {
   };
   return (
     <div>
-      <div>Select value:</div>
+      <div>{label ? label : "Select: "}</div>
       <ComboBox
         data={data}
         textField="text"

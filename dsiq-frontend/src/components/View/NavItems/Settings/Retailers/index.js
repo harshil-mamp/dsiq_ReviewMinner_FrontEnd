@@ -7,7 +7,7 @@ import OutlineBtn from "../../../../common/Buttons/OutlineBtn";
 import { Dialog } from "@progress/kendo-react-dialogs";
 import DeleteDilog from "../../../../common/DeleteDilog";
 import DropWithSearch from "../../../../common/Dropdown/DropWithSearch";
-import retailersData from "./retailers";
+import retailersData from "../../../../../data/Retailers/retailers";
 
 const Retailers = () => {
   const [retailers, setRetailers] = useState([]);

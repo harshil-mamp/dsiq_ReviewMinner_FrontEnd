@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Sidebar from "../Global/Sidebar";
 // import Navbars from "../Global/Navbars/index";
 import WordCloud from "../Global/WordCloud";
@@ -21,12 +21,31 @@ import statesArray from "../../data/statesArray";
 import { treeData } from "../../data/tree-data";
 // const statesNamesArray = states.map((state) => state.text);
 
+import SetupForm from "../Global/SetupForm";
+
 import "./index.css";
 
 const Home = () => {
-  const [topics, setTopics] = React.useState([]);
-  const [isFetching, setIsFetching] = React.useState(true);
-  const [error, setError] = React.useState(null);
+  const [setupData, setSetupData] = useState(
+    localStorage.getItem("setup_data")
+  );
+
+  const checkSetupDataValidity = () => {
+    const data = localStorage.getItem("setup_data");
+    if (!data) {
+      setSetupData(null);
+      return;
+    }
+  };
+
+  useEffect(() => {
+    setSetupData(localStorage.getItem("setup_data"));
+    checkSetupDataValidity();
+  }, []);
+
+  const [topics, setTopics] = useState([]);
+  const [isFetching, setIsFetching] = useState(true);
+  const [error, setError] = useState(null);
   const [selectedWordData, setSelectedWordData] = useState([]);
   const [success, setSuccess] = useState(false);
 
@@ -51,7 +70,7 @@ const Home = () => {
     }
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     fetch("topics.json")
       .then((response) => {
         if (!response.ok) {
@@ -77,9 +96,11 @@ const Home = () => {
   return (
     <div className="d-flex">
       <div className="w-100">
-        <div className="home-wrapper mx-auto p-3 shadow-container my-3">
-          <h1 className="mx-auto my-5 text-center">Home</h1>
-          <div className="mx-auto d-flex flex-column align-items-center justify-content-center">
+        {setupData === null && <SetupForm />}
+        <div>
+          <div className="home-wrapper mx-auto p-3 shadow-container my-3">
+            <h1 className="mx-auto my-5 text-center">Home</h1>
+            {/* <div className="mx-auto d-flex flex-column align-items-center justify-content-center">
             <button
               className="k-button k-button-md k-rounded-md k-button-solid k-button-solid-base"
               onClick={() => setSuccess(true)}
@@ -125,26 +146,27 @@ const Home = () => {
                 <OutlineBtn icon={"fa fa-xmark fa-solid"} text={"cancel"} />
               </div>
             </div>
+          </div> */}
           </div>
-        </div>
-        <div>
-          <div className="my-3 mx-2">
-            {isFetching ? (
-              <span>Fetching topics...</span>
-            ) : error ? (
-              <span>Error: {error.toString()}</span> // Render the error message as a string
-            ) : (
-              <WordCloud
-                topics={topics}
-                selectedWordData={selectedWordData}
-                setSelectedWordData={setSelectedWordData}
-                onSelectWord={onSelectWord}
-              />
-            )}
-          </div>
-          <div className="my-3 mx-2">
-            <h1 className="text-center">Tree Graph</h1>
-            <TreeChart selectedWordData={selectedWordData} />
+          <div>
+            <div className="my-3 mx-2">
+              {isFetching ? (
+                <span>Fetching topics...</span>
+              ) : error ? (
+                <span>Error: {error.toString()}</span> // Render the error message as a string
+              ) : (
+                <WordCloud
+                  topics={topics}
+                  selectedWordData={selectedWordData}
+                  setSelectedWordData={setSelectedWordData}
+                  onSelectWord={onSelectWord}
+                />
+              )}
+            </div>
+            <div className="my-3 mx-2">
+              <h1 className="text-center">Tree Graph</h1>
+              <TreeChart selectedWordData={selectedWordData} />
+            </div>
           </div>
         </div>
       </div>

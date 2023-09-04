@@ -95,6 +95,11 @@
   cursor: pointer;
 }
 
+/* Setup forms data */
+.setup-form-dialog .k-dialog {
+  min-width: 700px;
+}
+
 /* Sidebar Navbar Setup */
 .navbar-height,
 .sidebar-nav-height {
