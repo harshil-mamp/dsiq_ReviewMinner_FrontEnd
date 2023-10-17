@@ -114,6 +114,12 @@
     border-color: var(--primary);
 }
 
+.k-button-solid-primary,
+.k-button-solid-primary:hover {
+    background-color: var(--primary);
+    color: var(--white);
+    border-color: var(--primary);
+}
 
 /* Input-Searchbar */
 .k-input-inner {
@@ -205,4 +211,22 @@
     letter-spacing: 1px;
     font-weight: 700;
     color: var(--primary);
+}
+
+.k-stepper .k-step-done .k-step-indicator,
+.k-stepper .k-step-current .k-step-indicator,
+.k-progressbar .k-selected,
+.k-stepper .k-step-current:hover .k-step-indicator,
+.k-stepper .k-step-current.k-hover .k-step-indicator,
+.k-stepper .k-step-current.k-step-hover .k-step-indicator,
+.k-stepper .k-step-done:hover .k-step-indicator,
+.k-stepper .k-step-done.k-hover .k-step-indicator,
+.k-stepper .k-step-done.k-step-hover .k-step-indicator {
+    border-color: var(--secondary);
+    color: var(--white);
+    background-color: var(--secondary);
+}
+
+.k-dialog-wrapper {
+    z-index: 99 !important;
 }

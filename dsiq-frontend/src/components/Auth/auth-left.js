@@ -14,25 +14,25 @@ const AuthLeft = () => {
           With your trial you get:
         </p>
         <div className="mb-3 d-flex align-items-center">
-          <i class="fa-solid fa-check" style={{ color: "#198754" }}></i>
+          <i className="fa-solid fa-check" style={{ color: "#198754" }}></i>
           <p className="ps-2 font-white letter-spacing-1">
             Preloaded data or upload your own
           </p>
         </div>
         <div className="mb-3 d-flex align-items-center">
-          <i class="fa-solid fa-check" style={{ color: "#198754" }}></i>
+          <i className="fa-solid fa-check" style={{ color: "#198754" }}></i>
           <p className="ps-2 font-white letter-spacing-1">
             Preconfigured processes, reports and dashboards
           </p>
         </div>
         <div className="mb-3 d-flex align-items-center">
-          <i class="fa-solid fa-check" style={{ color: "#198754" }}></i>
+          <i className="fa-solid fa-check" style={{ color: "#198754" }}></i>
           <p className="ps-2 font-white letter-spacing-1">
             Guided experience for sales, reps, leaders and administrators
           </p>
         </div>
         <div className="mb-3 d-flex align-items-center">
-          <i class="fa-solid fa-check" style={{ color: "#198754" }}></i>
+          <i className="fa-solid fa-check" style={{ color: "#198754" }}></i>
           <p className="ps-2 font-white letter-spacing-1">
             Online training and live onboarding webinars
           </p>

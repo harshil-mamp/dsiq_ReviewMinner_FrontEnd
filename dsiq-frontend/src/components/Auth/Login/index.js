@@ -78,7 +78,7 @@ const Login = () => {
         } else {
           setErrMsg("Login Failed");
         }
-        errRef.current.focus();
+        // errRef.current.focus();
       } finally {
         stopLoading();
       }

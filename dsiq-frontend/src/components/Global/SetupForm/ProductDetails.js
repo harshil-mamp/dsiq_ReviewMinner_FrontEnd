@@ -4,7 +4,13 @@ import { Row, Col, Form } from "react-bootstrap";
 import DropWithSearch from "../../common/Dropdown/DropWithSearch";
 import retailersData from "../../../data/Retailers/retailers";
 
-const ProductDetails = () => {
+const ProductDetails = ({ setDetails }) => {
+  const handleSelect = (event) => {
+    console.log("Product Selected:", event);
+    if (setDetails) {
+    }
+    setDetails(event);
+  };
   return (
     <div>
       <Form>
@@ -15,6 +21,7 @@ const ProductDetails = () => {
               a.text.localeCompare(b.text)
             )}
             suggest={true}
+            onChange={(value) => handleSelect(value)}
           />
         </Row>
       </Form>

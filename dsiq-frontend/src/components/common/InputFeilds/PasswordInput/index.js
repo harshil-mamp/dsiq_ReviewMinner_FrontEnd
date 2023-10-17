@@ -32,9 +32,12 @@ const PasswordInput = ({
           onClick={togglePassword}
         >
           {showPassword ? (
-            <i class="fa-regular fa-eye-slash" style={{ color: "#3f4b55" }}></i>
+            <i
+              className="fa-regular fa-eye-slash"
+              style={{ color: "#3f4b55" }}
+            ></i>
           ) : (
-            <i class="fa-regular fa-eye" style={{ color: "#3f4b55" }}></i>
+            <i className="fa-regular fa-eye" style={{ color: "#3f4b55" }}></i>
           )}
         </div>
         <InputGroup.Text>
